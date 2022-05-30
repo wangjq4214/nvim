@@ -4,4 +4,6 @@ require("user.basic")
 require("user.keybindings")
 -- plugins
 require("user.plugins")
+-- 主题设置
+require("user.colorscheme")
 
