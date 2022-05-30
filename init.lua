@@ -20,6 +20,10 @@ require("user.plugin-config.dashboard")
 require("user.plugin-config.project")
 -- nvim-treesitter
 require("user.plugin-config.nvim-treesitter")
+-- indent blankline
+require("user.plugin-config.indent-blankline")
 -- lsp
 require("user.lsp.setup")
-
+require("user.lsp.cmp")
+require("user.lsp.ui")
+require("user.lsp.null-lsp")
