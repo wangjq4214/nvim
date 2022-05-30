@@ -22,6 +22,8 @@ require("user.plugin-config.project")
 require("user.plugin-config.nvim-treesitter")
 -- indent blankline
 require("user.plugin-config.indent-blankline")
+-- auto pairs
+require("user.plugin-config.nvim-autopairs")
 -- lsp
 require("user.lsp.setup")
 require("user.lsp.cmp")
