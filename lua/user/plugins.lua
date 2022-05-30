@@ -37,6 +37,12 @@ return require("packer").startup({
     -- telescope extension
     use("LinArcX/telescope-env.nvim")
 
+    -- dashboard
+    use("glepnir/dashboard-nvim")
+
+    -- project
+    use("ahmedkhalf/project.nvim")
+
     -- Automatically set up your configuration after cloning packer.nvim
     -- Put this at the end after all plugins
     if packer_bootstrap then

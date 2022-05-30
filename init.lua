@@ -14,4 +14,8 @@ require("user.plugin-config.bufferline")
 require("user.plugin-config.lualine")
 -- telescope
 require("user.plugin-config.telescope")
+-- dashboard
+require("user.plugin-config.dashboard")
+-- project
+require("user.plugin-config.project")
 
