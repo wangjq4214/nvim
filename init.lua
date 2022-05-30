@@ -8,4 +8,8 @@ require("user.plugins")
 require("user.colorscheme")
 -- tree plugin
 require("user.plugin-config.nvim-tree")
+-- bufferline
+require("user.plugin-config.bufferline")
+-- lualine
+require("user.plugin-config.lualine")
 
