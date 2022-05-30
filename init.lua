@@ -20,4 +20,6 @@ require("user.plugin-config.dashboard")
 require("user.plugin-config.project")
 -- nvim-treesitter
 require("user.plugin-config.nvim-treesitter")
+-- lsp
+require("user.lsp.setup")
 

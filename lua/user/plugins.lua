@@ -18,6 +18,10 @@ return require("packer").startup({
 
     -- lsp
     use("neovim/nvim-lspconfig")
+    use("williamboman/nvim-lsp-installer")
+
+    -- lua
+    use("folke/lua-dev.nvim")
 
     -- colorscheme
     use("folke/tokyonight.nvim")
