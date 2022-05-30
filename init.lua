@@ -18,4 +18,6 @@ require("user.plugin-config.telescope")
 require("user.plugin-config.dashboard")
 -- project
 require("user.plugin-config.project")
+-- nvim-treesitter
+require("user.plugin-config.nvim-treesitter")
 

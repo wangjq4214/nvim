@@ -16,6 +16,9 @@ return require("packer").startup({
     -- self
     use("wbthomason/packer.nvim")
 
+    -- lsp
+    use("neovim/nvim-lspconfig")
+
     -- colorscheme
     use("folke/tokyonight.nvim")
 
@@ -42,6 +45,9 @@ return require("packer").startup({
 
     -- project
     use("ahmedkhalf/project.nvim")
+
+    -- treesitter
+    use({ "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" })
 
     -- Automatically set up your configuration after cloning packer.nvim
     -- Put this at the end after all plugins
