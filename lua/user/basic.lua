@@ -67,7 +67,7 @@ vim.o.termguicolors = true
 vim.opt.termguicolors = true
 -- 不可见字符显示
 vim.o.list = true
-vim.o.listchars = "space:·,tab:> "
+vim.o.listchars = "space:·,tab:>-"
 -- 补全增强
 vim.o.wildmenu = true
 -- 不传递消息
