@@ -24,6 +24,8 @@ require("user.plugin-config.nvim-treesitter")
 require("user.plugin-config.indent-blankline")
 -- auto pairs
 require("user.plugin-config.nvim-autopairs")
+-- toggleterm
+require("user.plugin-config.nvim-toggleterm")
 -- lsp
 require("user.lsp.setup")
 require("user.lsp.cmp")

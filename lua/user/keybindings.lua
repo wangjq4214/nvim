@@ -1,3 +1,5 @@
+-- 导出插件的快捷键
+local plugin_keys = {}
 -- 定义leader键
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
@@ -8,6 +10,8 @@ local opt = { noremap = true, silent = true }
 
 -- 通用
 map("n", "<C-s>", ":w<CR>", opt)
+-- mock ctrl-v with windows terminal
+map("n", "<leader>v", "<C-v>", opt)
 
 -- 窗口管理功能
 -- 取消s默认功能
@@ -37,13 +41,19 @@ map("n", "<C-Up>", ":resize -2<CR>", opt)
 map("n", "s=", "<C-w>=", opt)
 
 -- Terminal相关
-map("n", "<leader>t", ":sp | terminal<CR>", opt)
-map("n", "<leader>vt", ":vsp | terminal<CR>", opt)
+map("n", "<leader>t", ":ToggleTerm<CR>", opt)
+map("n", "<leader>h", ":ToggleTerm size=20 direction=horizontal<CR>", opt)
+map("t", "<leader>q", "[[ <C-\\><C-n>:q<CR> ]]", opt)
+-- map("n", "<leader>t", ":sp | terminal<CR>", opt)
+-- map("n", "<leader>vt", ":vsp | terminal<CR>", opt)
 map("t", "<Esc>", "<C-\\><C-n>", opt)
-map("t", "<A-h>", [[ <C-\><C-N><C-w>h ]], opt)
-map("t", "<A-j>", [[ <C-\><C-N><C-w>j ]], opt)
-map("t", "<A-k>", [[ <C-\><C-N><C-w>k ]], opt)
-map("t", "<A-l>", [[ <C-\><C-N><C-w>l ]], opt)
+-- map("t", "<A-h>", [[ <C-\><C-N><C-w>h ]], opt)
+-- map("t", "<A-j>", [[ <C-\><C-N><C-w>j ]], opt)
+-- map("t", "<A-k>", [[ <C-\><C-N><C-w>k ]], opt)
+-- map("t", "<A-l>", [[ <C-\><C-N><C-w>l ]], opt)
+plugin_keys.toggleterm = function()
+  map("n", "<leader>g", "<cmd>lua LazygitToggle()<CR>", opt)
+end
 
 -- visual模式下缩进代码
 map("v", "<", "<gv", opt)
@@ -70,9 +80,6 @@ map("n", "Q", ":qa!<CR>", opt)
 -- insert 模式下，跳到行首行尾
 map("i", "<C-h>", "<ESC>I", opt)
 map("i", "<C-l>", "<ESC>A", opt)
-
--- 导出插件的快捷键
-local plugin_keys = {}
 
 -- nvim-tree
 -- alt+m打开关闭tree

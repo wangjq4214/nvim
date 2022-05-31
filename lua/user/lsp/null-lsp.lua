@@ -13,12 +13,8 @@ null_ls.setup({
     --  brew install shfmt
     formatting.shfmt,
     -- StyLua
-    formatting.stylua.with({
-      args = {
-        "--indent_type=Space",
-        "--indent_width=2"
-      }
-    }),
+    formatting.stylua,
+    formatting.clang_format,
     -- frontend
     formatting.prettier.with({ -- 只比默认配置少了 markdown
       filetypes = {
