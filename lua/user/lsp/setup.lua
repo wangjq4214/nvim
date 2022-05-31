@@ -13,6 +13,7 @@ local servers = {
   sumneko_lua = require("user.lsp.config.lua"), -- lua/lsp/config/lua.lua
   clangd = require("user.lsp.config.clangd"),
   cmake = require("user.lsp.config.cmake"),
+  gopls = require("user.lsp.config.gopls")
 }
 
 for name, config in pairs(servers) do

@@ -14,7 +14,10 @@ null_ls.setup({
     formatting.shfmt,
     -- StyLua
     formatting.stylua,
+    -- cpp/c/oc
     formatting.clang_format,
+    -- go
+    formatting.gofmt,
     -- frontend
     formatting.prettier.with({ -- 只比默认配置少了 markdown
       filetypes = {
