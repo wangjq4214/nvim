@@ -43,7 +43,7 @@ vim.bo.autoread = true
 -- 禁止折行
 vim.wo.wrap = false
 -- 光标在行首尾时<Left><Right>可以换行
-vim.o.whichwrap = "<,>,[,]"
+-- vim.o.whichwrap = "<,>,[,]"
 -- 允许隐藏被修改过的buffer
 vim.o.hidden = true
 -- 鼠标支持
@@ -67,7 +67,7 @@ vim.o.termguicolors = true
 vim.opt.termguicolors = true
 -- 不可见字符显示
 vim.o.list = true
-vim.o.listchars = "space:·"
+vim.o.listchars = "space:·,tab:> "
 -- 补全增强
 vim.o.wildmenu = true
 -- 不传递消息
@@ -78,4 +78,3 @@ vim.o.pumheight = 10
 vim.o.showtabline = 2
 -- 关闭模式提示，使用增强状态栏
 vim.o.showmode = false
-
