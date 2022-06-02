@@ -1,8 +1,8 @@
 -- 导出插件的快捷键
 local plugin_keys = {}
 -- 定义leader键
-vim.g.mapleader = " "
-vim.g.maplocalleader = " "
+vim.g.mapleader = "\\"
+vim.g.maplocalleader = "\\"
 
 -- 复用参数和函数
 local map = vim.api.nvim_set_keymap
