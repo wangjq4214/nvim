@@ -85,6 +85,9 @@ return require("packer").startup({
     -- toggleterm
     use("akinsho/toggleterm.nvim")
 
+    -- gitsigns
+    use({ "lewis6991/gitsigns.nvim", tag = "release" })
+
     -- Automatically set up your configuration after cloning packer.nvim
     -- Put this at the end after all plugins
     if packer_bootstrap then

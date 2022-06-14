@@ -26,6 +26,8 @@ require("user.plugin-config.indent-blankline")
 require("user.plugin-config.nvim-autopairs")
 -- toggleterm
 require("user.plugin-config.nvim-toggleterm")
+-- gitsign
+require("user.plugin-config.nvim-gitsigns")
 -- lsp
 require("user.lsp.setup")
 require("user.lsp.cmp")

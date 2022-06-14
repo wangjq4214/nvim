@@ -36,6 +36,7 @@ null_ls.setup({
       },
       prefer_local = "node_modules/.bin",
     }),
+    null_ls.builtins.code_actions.gitsigns,
     -- formatting.fixjson,
     -- formatting.black.with({ extra_args = { "--fast" } }),
   },

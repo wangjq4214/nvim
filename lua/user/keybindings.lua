@@ -215,4 +215,55 @@ plugin_keys.cmp = function(cmp)
   }
 end
 
+plugin_keys.gitsigns = function(bufnr)
+  local gs = package.loaded.gitsigns
+
+  local function gitsignsMap(mode, l, r, opts)
+    opts = opts or {}
+    opts.buffer = bufnr
+    vim.keymap.set(mode, l, r, opts)
+  end
+
+  -- Navigation
+  gitsignsMap("n", "]c", function()
+    if vim.wo.diff then
+      return "]c"
+    end
+    vim.schedule(function()
+      gs.next_hunk()
+    end)
+    return "<Ignore>"
+  end, { expr = true })
+
+  gitsignsMap("n", "[c", function()
+    if vim.wo.diff then
+      return "[c"
+    end
+    vim.schedule(function()
+      gs.prev_hunk()
+    end)
+    return "<Ignore>"
+  end, { expr = true })
+
+  -- Actions
+  gitsignsMap({ "n", "v" }, "<leader>hs", ":Gitsigns stage_hunk<CR>")
+  gitsignsMap({ "n", "v" }, "<leader>hr", ":Gitsigns reset_hunk<CR>")
+  gitsignsMap("n", "<leader>hS", gs.stage_buffer)
+  gitsignsMap("n", "<leader>hu", gs.undo_stage_hunk)
+  gitsignsMap("n", "<leader>hR", gs.reset_buffer)
+  gitsignsMap("n", "<leader>hp", gs.preview_hunk)
+  gitsignsMap("n", "<leader>hb", function()
+    gs.blame_line({ full = true })
+  end)
+  gitsignsMap("n", "<leader>tb", gs.toggle_current_line_blame)
+  gitsignsMap("n", "<leader>hd", gs.diffthis)
+  gitsignsMap("n", "<leader>hD", function()
+    gs.diffthis("~")
+  end)
+  gitsignsMap("n", "<leader>td", gs.toggle_deleted)
+
+  -- Text object
+  gitsignsMap({ "o", "x" }, "ih", ":<C-U>Gitsigns select_hunk<CR>")
+end
+
 return plugin_keys
