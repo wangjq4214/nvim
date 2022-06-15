@@ -6,6 +6,8 @@ require("user.keybindings")
 require("user.plugins")
 -- 主题设置
 require("user.colorscheme")
+-- notify
+require("user.plugin-config.notify")
 -- tree plugin
 require("user.plugin-config.nvim-tree")
 -- bufferline

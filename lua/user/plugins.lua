@@ -88,6 +88,9 @@ return require("packer").startup({
     -- gitsigns
     use({ "lewis6991/gitsigns.nvim", tag = "release" })
 
+    -- notify
+    use("rcarriga/nvim-notify")
+
     -- Automatically set up your configuration after cloning packer.nvim
     -- Put this at the end after all plugins
     if packer_bootstrap then
