@@ -30,6 +30,8 @@ require("user.plugin-config.nvim-autopairs")
 require("user.plugin-config.nvim-toggleterm")
 -- gitsign
 require("user.plugin-config.nvim-gitsigns")
+-- comment
+require("user.plugin-config.nvim-comment")
 -- lsp
 require("user.lsp.setup")
 require("user.lsp.cmp")
