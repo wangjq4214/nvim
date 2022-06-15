@@ -32,6 +32,8 @@ require("user.plugin-config.nvim-toggleterm")
 require("user.plugin-config.nvim-gitsigns")
 -- comment
 require("user.plugin-config.nvim-comment")
+-- which key
+require("user.plugin-config.nvim-which-key")
 -- lsp
 require("user.lsp.setup")
 require("user.lsp.cmp")
