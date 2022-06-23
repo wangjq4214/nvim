@@ -10,7 +10,7 @@ M.bootstrap = function()
     fn.system({ "git", "clone", "--depth", "1", "https://github.com/wbthomason/packer.nvim", install_path })
 
     vim.cmd("packadd packer.nvim")
-    require("plugins")
+    require("plugins").setup()
     vim.cmd("PackerSync")
   end
 end

@@ -1,6 +1,11 @@
 local opt = vim.opt
 local g = vim.g
 
+g.mapleader = " "
+
+g.did_load_filetypes = 0
+g.do_filetype_lua = 1
+
 -- global statusline
 opt.laststatus = 3
 opt.showmode = false
