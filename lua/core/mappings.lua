@@ -23,6 +23,8 @@ Mappings.general = {
   },
   n = {
     ["<ESC>"] = { "<cmd> noh <CR>", "  no highlight" },
+    ["q"] = { "<cmd> q <CR>", " quit this window" },
+    ["<C-w>"] = { "<cmd> Bdelete! <CR>", " close buffer" },
 
     -- switch between windows
     ["<C-h>"] = { "<C-w>h", " window left" },
@@ -51,7 +53,25 @@ Mappings.nvimtree = {
     ["<C-n>"] = { "<cmd> NvimTreeToggle <CR>", "   toggle nvimtree" },
     -- focus
     ["<leader>e"] = { "<cmd> NvimTreeFocus <CR>", "   focus nvimtree" },
-  }
+  },
+}
+
+Mappings.bufferline = {
+  n = {
+    -- new buffer
+    ["<S-b>"] = { "<cmd> enew <CR>", "烙 new buffer" },
+    -- cycle through buffers
+    ["<TAB>"] = { "<cmd> BufferLineCycleNext <CR>", "  cycle next buffer" },
+    ["<S-Tab>"] = { "<cmd> BufferLineCyclePrev <CR>", "  cycle prev buffer" },
+
+    -- close buffer + hide terminal buffer
+    ["<leader>x"] = {
+      function()
+        require("core.helper").close_buffer()
+      end,
+      "   close buffer",
+    },
+  },
 }
 
 M.load_mappings = function()

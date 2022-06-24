@@ -1,20 +1,32 @@
 local M = {}
 
+
 local plugins = {
   ["wbthomason/packer.nvim"] = {},
   ["folke/tokyonight.nvim"] = {},
   ["kyazdani42/nvim-web-devicons"] = {},
+  ["moll/vim-bbye"] = {},
   ["kyazdani42/nvim-tree.lua"] = {
     ft = "alpha",
     cmd = { "NvimTreeToggle", "NvimTreeFocus" },
     config = function()
       require("plugins.nvim-tree")
-    end
+    end,
+  },
+  ["akinsho/bufferline.nvim"] = {
+    tag = "v2.*",
+    opt = true,
+    setup = function()
+      require("plugins.bufferline").setup()
+    end,
+    config = function()
+      require("plugins.bufferline").config()
+    end,
   },
   ["folke/which-key.nvim"] = {
     module = "which-key",
     config = function()
-    end
+    end,
   },
 }
 
