@@ -9,3 +9,4 @@ vim.defer_fn(
 
 require("core.packer").bootstrap()
 require("plugins").setup()
+require("ui")

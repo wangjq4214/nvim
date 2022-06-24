@@ -45,11 +45,20 @@ Mappings.general = {
   },
 }
 
+Mappings.nvimtree = {
+  n = {
+    -- toggle
+    ["<C-n>"] = { "<cmd> NvimTreeToggle <CR>", "   toggle nvimtree" },
+    -- focus
+    ["<leader>e"] = { "<cmd> NvimTreeFocus <CR>", "   focus nvimtree" },
+  }
+}
+
 M.load_mappings = function()
   local map_func
-  local whichkey_exists, wk = pcall(require, "which-key")
+  local ok, wk = pcall(require, "which-key")
 
-  if whichkey_exists then
+  if ok then
     map_func = function(keybind, mapping_info, opts)
       wk.register({ [keybind] = mapping_info }, opts)
     end

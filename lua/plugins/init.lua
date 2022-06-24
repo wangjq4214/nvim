@@ -2,6 +2,15 @@ local M = {}
 
 local plugins = {
   ["wbthomason/packer.nvim"] = {},
+  ["folke/tokyonight.nvim"] = {},
+  ["kyazdani42/nvim-web-devicons"] = {},
+  ["kyazdani42/nvim-tree.lua"] = {
+    ft = "alpha",
+    cmd = { "NvimTreeToggle", "NvimTreeFocus" },
+    config = function()
+      require("plugins.nvim-tree")
+    end
+  },
   ["folke/which-key.nvim"] = {
     module = "which-key",
     config = function()
@@ -10,9 +19,9 @@ local plugins = {
 }
 
 M.setup = function()
-  local exists, packer = pcall(require, "packer")
+  local ok, packer = pcall(require, "packer")
 
-  if not exists then
+  if not ok then
     return
   end
 
