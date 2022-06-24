@@ -2,10 +2,21 @@ local M = {}
 
 
 local plugins = {
+  -- self
   ["wbthomason/packer.nvim"] = {},
+  -- theme
   ["folke/tokyonight.nvim"] = {},
   ["kyazdani42/nvim-web-devicons"] = {},
-  ["moll/vim-bbye"] = {},
+  -- telescope
+  ["nvim-lua/plenary.nvim"] = {},
+  ["LinArcX/telescope-env.nvim"] = {},
+  ["nvim-telescope/telescope.nvim"] = {
+    cmd = "Telescope",
+    config = function()
+      require("plugins.telescope").config()
+    end
+  },
+  -- tree
   ["kyazdani42/nvim-tree.lua"] = {
     ft = "alpha",
     cmd = { "NvimTreeToggle", "NvimTreeFocus" },
@@ -13,6 +24,8 @@ local plugins = {
       require("plugins.nvim-tree")
     end,
   },
+  -- bufferline
+  ["moll/vim-bbye"] = {},
   ["akinsho/bufferline.nvim"] = {
     tag = "v2.*",
     opt = true,
@@ -23,6 +36,7 @@ local plugins = {
       require("plugins.bufferline").config()
     end,
   },
+  -- which key
   ["folke/which-key.nvim"] = {
     module = "which-key",
     config = function()
