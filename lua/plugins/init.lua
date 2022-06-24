@@ -10,15 +10,26 @@ local plugins = {
   -- telescope
   ["nvim-lua/plenary.nvim"] = {},
   ["LinArcX/telescope-env.nvim"] = {},
+  ["ahmedkhalf/project.nvim"] = {
+    config = function()
+      require("project_nvim").setup()
+    end
+  },
   ["nvim-telescope/telescope.nvim"] = {
     cmd = "Telescope",
     config = function()
       require("plugins.telescope").config()
     end
   },
+  -- dashboard
+  ["glepnir/dashboard-nvim"] = {
+    config = function()
+      require("plugins.dashboard").config()
+    end
+  },
   -- tree
   ["kyazdani42/nvim-tree.lua"] = {
-    ft = "alpha",
+    ft = "dashboard",
     cmd = { "NvimTreeToggle", "NvimTreeFocus" },
     config = function()
       require("plugins.nvim-tree")

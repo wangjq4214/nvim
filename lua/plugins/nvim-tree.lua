@@ -15,10 +15,11 @@ local options = {
   ignore_ft_on_setup = { "alpha" },
   hijack_cursor = true,
   hijack_unnamed_buffer_when_opening = false,
+  respect_buf_cwd = true,
   update_cwd = true,
   update_focused_file = {
     enable = true,
-    update_cwd = false,
+    update_cwd = true,
   },
   view = {
     side = "left",
@@ -78,4 +79,10 @@ local options = {
 }
 
 tree.setup(options)
+
+
+-- 自动关闭
+vim.cmd([[
+  autocmd BufEnter * ++nested if winnr('$') == 1 && bufname() == 'NvimTree_' . tabpagenr() | quit | endif
+]])
 

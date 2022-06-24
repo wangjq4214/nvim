@@ -50,7 +50,7 @@ local options = {
     },
   },
 
-  extensions_list = { "env" },
+  extensions_list = { "env", "projects" },
 }
 
 M.config = function()
