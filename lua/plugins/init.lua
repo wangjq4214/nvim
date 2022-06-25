@@ -27,6 +27,7 @@ local plugins = {
       require("plugins.dashboard").config()
     end
   },
+  --[] = {},
   -- tree
   ["kyazdani42/nvim-tree.lua"] = {
     ft = "dashboard",
