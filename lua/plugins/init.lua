@@ -27,9 +27,21 @@ local plugins = {
       require("plugins.dashboard").config()
     end
   },
+  -- lualine
   ["nvim-lualine/lualine.nvim"] = {
     config = function()
       require("plugins.lualine").config()
+    end
+  },
+  -- treesitter
+  ["nvim-treesitter/nvim-treesitter"] = {
+    setup = function()
+      require("plugins.nvim-treesitter").setup()
+    end,
+    cmd = require("plugins.nvim-treesitter").cmds,
+    run = ":TSUpdate",
+    config = function()
+      require("plugins.nvim-treesitter").config()
     end
   },
   -- tree
