@@ -1,21 +1,21 @@
 local nvim_tree_keymap = {
   -- open file or dir
-  { key = { "<CR>", "o", "<2-LeftMouse>" }, action = "edit" },
+  { key = { '<CR>', 'o', '<2-LeftMouse>' }, action = 'edit' },
   -- split to open file
-  { key = "v", action = "vsplit" },
-  { key = "h", action = "split" },
+  { key = 'v', action = 'vsplit' },
+  { key = 'h', action = 'split' },
   -- hidden or show filters
-  { key = "i", action = "toggle_custom" }, -- filters custom options (node_modules)
-  { key = ".", action = "toggle_dotfiles" }, -- Hide (dotfiles)
+  { key = 'i', action = 'toggle_custom' }, -- filters custom options (node_modules)
+  { key = '.', action = 'toggle_dotfiles' }, -- Hide (dotfiles)
   -- file operation
-  { key = "<F5>", action = "refresh" },
-  { key = "a", action = "create" },
-  { key = "d", action = "remove" },
-  { key = "r", action = "rename" },
-  { key = "x", action = "cut" },
-  { key = "c", action = "copy" },
-  { key = "p", action = "paste" },
-  { key = "s", action = "system_open" },
+  { key = '<F5>', action = 'refresh' },
+  { key = 'a', action = 'create' },
+  { key = 'd', action = 'remove' },
+  { key = 'r', action = 'rename' },
+  { key = 'x', action = 'cut' },
+  { key = 'c', action = 'copy' },
+  { key = 'p', action = 'paste' },
+  { key = 's', action = 'system_open' },
 }
 
 local M = {}
@@ -94,15 +94,59 @@ M.nvim_bufferline = function()
       -- lsp config
       diagnostics = 'nvim_lsp',
       diagnostics_indicator = function(count, level, diagnostics_dict, context)
-        local s = " "
+        local s = ' '
         for e, n in pairs(diagnostics_dict) do
-          local sym = e == "error" and " " or (e == "warning" and " " or "")
+          local sym = e == 'error' and ' ' or (e == 'warning' and ' ' or '')
           s = s .. n .. sym
         end
         return s
       end,
     },
   })
+end
+
+M.nvim_telescope = function()
+  local ok, telescope = pcall(require, 'telescope')
+  if not ok then
+    return 
+  end
+
+  telescope.setup({
+    defaults = {
+      -- 打开弹窗后进入的初始模式，默认为 insert，也可以是 normal
+      initial_mode = 'insert',
+      -- 窗口内快捷键
+      mappings = {
+        i = {
+          -- 上下移动
+          ['<C-j>'] = 'move_selection_next',
+          ['<C-k>'] = 'move_selection_previous',
+          ['<Down>'] = 'move_selection_next',
+          ['<Up>'] = 'move_selection_previous',
+          -- 历史记录
+          ['<C-n>'] = 'cycle_history_next',
+          ['<C-p>'] = 'cycle_history_prev',
+          -- 关闭窗口
+          ['<C-c>'] = 'close',
+          -- 预览窗口上下滚动
+          ['<C-u>'] = 'preview_scrolling_up',
+          ['<C-d>'] = 'preview_scrolling_down',
+        },
+      },
+    },
+    pickers = {
+      -- 内置 pickers 配置
+      find_files = {
+        -- 查找文件换皮肤，支持的参数有： dropdown, cursor, ivy
+        -- theme = 'dropdown', 
+      }
+    },
+    extensions = {
+      -- 扩展插件配置
+    },
+  })
+
+  pcall(telescope.load_extension, 'env')
 end
 
 return M

@@ -16,3 +16,11 @@ load_keymap({
   },
 })
 
+-- telescope
+load_keymap({
+  n = {
+    ['<C-p>'] = { ':Telescope find_files<CR>', ' find files' },
+    ['<C-f>'] = { ':Telescope live_grep<CR>', ' search file content' },
+  },
+})
+
