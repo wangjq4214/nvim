@@ -31,6 +31,7 @@ M.nvim_tree = function()
     git = {
       enable = false,
     },
+    respect_buf_cwd = true,
     -- project plugin settings
     update_cwd = true,
     update_focused_file = {
@@ -138,8 +139,11 @@ M.nvim_telescope = function()
       -- 内置 pickers 配置
       find_files = {
         -- 查找文件换皮肤，支持的参数有： dropdown, cursor, ivy
-        -- theme = 'dropdown', 
-      }
+        theme = 'dropdown', 
+      },
+      live_grep = {
+        theme = 'dropdown',
+      },
     },
     extensions = {
       -- 扩展插件配置
