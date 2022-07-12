@@ -153,5 +153,24 @@ M.nvim_telescope = function()
   pcall(telescope.load_extension, 'env')
 end
 
+M.telescope_project = function()
+  local ok, project = pcall(require, 'project_nvim')
+  if not ok then
+    return
+  end
+
+  local ok, telescope = pcall(require, 'telescope')
+  if not ok then
+    return
+  end
+
+  project.setup({
+    detection_methods = { 'pattern' },
+    patterns = { '.git', '_darcs', '.hg', '.bzr', '.svn', 'Makefile', 'package.json', '.sln' },
+  })
+
+  pcall(telescope.load_extension, 'projects')
+end
+
 return M
 

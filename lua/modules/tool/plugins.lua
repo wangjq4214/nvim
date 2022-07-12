@@ -20,4 +20,7 @@ register({
   requires = { 'nvim-lua/plenary.nvim' }
 })
 register({ 'LinArcX/telescope-env.nvim' })
-register({ 'ahmedkhalf/project.nvim' })
+register({
+  'ahmedkhalf/project.nvim',
+  config = conf.telescope_project,
+})
