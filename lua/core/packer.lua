@@ -17,8 +17,15 @@ function Packer:load_plugins()
   local get_plugins_list = function()
     local list = {}
     local tmp = vim.split(fn.globpath(modules_dir, '*/plugins.lua'), '\n')
+
+    local pattern = 'lua/(.+).lua$'
+    start = string.find(uv.os_uname().sysname, 'Windows')
+    if start ~= nil then
+      pattern = 'lua\\(.+).lua$'
+    end
+
     for _, f in ipairs(tmp) do
-      list[#list+1] = string.match(f, 'lua/(.+).lua$')
+      list[#list+1] = string.match(f, pattern)
     end
     return list
   end
@@ -44,7 +51,7 @@ function Packer:load_packer()
   packer.reset()
 
   self:load_plugins()
-  
+
   local use = packer.use
   use({ 'wbthomason/packer.nvim', opt = true })
   for _, repo in ipairs(self.repos) do
