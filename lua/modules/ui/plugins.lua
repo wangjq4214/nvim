@@ -9,3 +9,5 @@ register({
   requires = { 'kyazdani42/nvim-web-devicons' }
 })
 
+register({ 'glepnir/dashboard-nvim', config = conf.dashboard })
+

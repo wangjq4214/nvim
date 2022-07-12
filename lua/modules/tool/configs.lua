@@ -144,6 +144,9 @@ M.nvim_telescope = function()
       live_grep = {
         theme = 'dropdown',
       },
+      oldfiles = {
+        theme = 'dropdown',
+      },
     },
     extensions = {
       -- 扩展插件配置
