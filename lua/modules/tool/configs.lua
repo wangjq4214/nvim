@@ -175,5 +175,42 @@ M.telescope_project = function()
   pcall(telescope.load_extension, 'projects')
 end
 
+M.nvim_treesitter = function()
+  local ok, treesitter = pcall(require, 'nvim-treesitter.configs')
+  if not ok then
+    return
+  end
+
+  treesitter.setup({
+    ensure_installed = {
+      'bash', 'c', 'cmake', 'cpp', 'css', 'dockerfile', 'go', 'gomod', 'gowork', 'html', 'java',
+      'javascript', 'json5', 'lua', 'make', 'markdown', 'python', 'rust', 'scss', 'toml',
+      'typescript', 'vue', 'yaml'
+    },
+    highlight = {
+      enable = true,
+      additional_vim_regex_highlighting = false
+    },
+    incremental_selection = {
+      enable = true,
+      keymaps = {
+        init_selection = '<CR>',
+        node_incremental = '<CR>',
+        node_decremental = '<BS>',
+        scope_incremental = '<TAB>',
+      },
+    },
+    indent = {
+      enable = true
+    },
+  })
+
+  -- 开启代码折叠
+  vim.opt.foldmethod = 'expr'
+  vim.opt.foldexpr = 'nvim_treesitter#foldexpr()'
+  -- 默认不折叠
+  vim.opt.foldlevel = 99
+end
+
 return M
 

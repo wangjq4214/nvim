@@ -24,3 +24,9 @@ register({
   'ahmedkhalf/project.nvim',
   config = conf.telescope_project,
 })
+
+register({
+  'nvim-treesitter/nvim-treesitter',
+  run = ':TSUpdate',
+  config = conf.nvim_treesitter,
+})
