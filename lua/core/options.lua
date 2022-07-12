@@ -6,13 +6,13 @@ vim.o.scrolloff = 8
 vim.o.sidescrolloff = 8
 -- 使用相对行号
 vim.wo.number = true
-vim.wo.relativenumber = true
+-- vim.wo.relativenumber = true
 -- 高亮所在行
 vim.wo.cursorline = true
 -- 显示左侧图标指示列
-vim.wo.signcolumn = "yes"
+vim.wo.signcolumn = 'yes'
 -- 右侧参考线，超过表示代码太长了，考虑换行
-vim.wo.colorcolumn = "100"
+vim.wo.colorcolumn = '100'
 -- 缩进，2个空格等于一个tab
 vim.o.tabstop = 2
 vim.bo.tabstop = 2
@@ -43,11 +43,11 @@ vim.bo.autoread = true
 -- 禁止折行
 vim.wo.wrap = false
 -- 光标在行首尾时<Left><Right>可以换行
--- vim.o.whichwrap = "<,>,[,]"
+-- vim.o.whichwrap = '<,>,[,]'
 -- 允许隐藏被修改过的buffer
 vim.o.hidden = true
 -- 鼠标支持
-vim.o.mouse = "a"
+vim.o.mouse = 'a'
 -- 禁止创建备份文件
 vim.o.backup = false
 vim.o.writebackup = false
@@ -60,22 +60,24 @@ vim.o.timeoutlen = 500
 vim.o.splitbelow = true
 vim.o.splitright = true
 -- 自动补全不自动选中
-vim.g.completeopt = "menu,menuone,noselect,noinsert"
+vim.g.completeopt = 'menu,menuone,noselect,noinsert'
 -- 样式
-vim.o.background = "dark"
+vim.o.background = 'dark'
 vim.o.termguicolors = true
 vim.opt.termguicolors = true
 -- 不可见字符显示
 vim.o.list = true
-vim.o.listchars = "space:·,tab:>-"
+vim.o.listchars = 'space:·,tab:>-'
 -- 补全增强
 vim.o.wildmenu = true
 -- 不传递消息
-vim.o.shortmess = vim.o.shortmess .. "c"
+vim.o.shortmess = vim.o.shortmess .. 'c'
 -- 补全最多显示10行
 vim.o.pumheight = 10
 -- 永远显示tabline
 vim.o.showtabline = 2
 -- 关闭模式提示，使用增强状态栏
 vim.o.showmode = false
+-- leader
+vim.g.mapleader = ' '
 

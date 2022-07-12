@@ -18,7 +18,10 @@ M.load_keymap = function(mappings)
 
   for mode, mode_mappings in pairs(mappings) do
     for keybind, mapping_info in pairs(mode_mappings) do
-      local opts = vim.tbl_deep_extend('force', { mode = mode }, mapping_info.opt or {})
+      local opts = vim.tbl_deep_extend('force', { mode = mode }, mapping_info.opt or {
+        noremap = true,
+        silent = true
+      })
 
       if mapping_info.opts then
         mapping_info.opts = nil
@@ -30,6 +33,13 @@ M.load_keymap = function(mappings)
 end
 
 M.load_general_keymap = function()
+  maps = {
+    n = {
+      ['<C-s>'] = { ':w<CR>', ' save this buffer' }
+    }
+  }
+
+  M.load_keymap(maps)
 end
 
 return M

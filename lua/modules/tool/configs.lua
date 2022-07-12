@@ -71,5 +71,39 @@ M.nvim_tree = function()
   ]])
 end
 
+M.nvim_bufferline = function()
+  local ok, bufferline = pcall(require, 'bufferline')
+  if not ok then
+    return
+  end
+
+  bufferline.setup({
+    options = {
+      -- close_command = 'Bdelete! %d',
+      -- right_mouse_commad = 'Bdelete! %d',
+
+      -- offset for nvim tree
+      offsets = {
+        {
+          filetype = 'NvimTree',
+          text = 'File Explorer',
+          highlight = 'Directory',
+          text_align = 'left',
+        },
+      },
+      -- lsp config
+      diagnostics = 'nvim_lsp',
+      diagnostics_indicator = function(count, level, diagnostics_dict, context)
+        local s = " "
+        for e, n in pairs(diagnostics_dict) do
+          local sym = e == "error" and " " or (e == "warning" and " " or "")
+          s = s .. n .. sym
+        end
+        return s
+      end,
+    },
+  })
+end
+
 return M
 
