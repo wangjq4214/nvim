@@ -32,15 +32,5 @@ M.load_keymap = function(mappings)
   end
 end
 
-M.load_general_keymap = function()
-  maps = {
-    n = {
-      ['<C-s>'] = { ':w<CR>', ' save this buffer' }
-    }
-  }
-
-  M.load_keymap(maps)
-end
-
 return M
 

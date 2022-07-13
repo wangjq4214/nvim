@@ -203,6 +203,13 @@ M.nvim_treesitter = function()
     indent = {
       enable = true
     },
+    rainbow = {
+      enable = true,
+      extended_mode = true,
+    },
+    autotag = {
+      enable = true,
+    },
   })
 
   -- 开启代码折叠

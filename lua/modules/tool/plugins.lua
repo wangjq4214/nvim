@@ -30,3 +30,5 @@ register({
   run = ':TSUpdate',
   config = conf.nvim_treesitter,
 })
+register({ 'p00f/nvim-ts-rainbow' })
+register({ 'windwp/nvim-ts-autotag' })
