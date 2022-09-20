@@ -1,2 +1,2 @@
--- Load Modules
+-- load plugins
 require('core')
