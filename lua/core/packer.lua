@@ -47,7 +47,7 @@ function _setup:scan_files()
   local get_plugins_list = function()
     local pattern = util:join_paths('lua', '(.+).lua$')
     local list = {}
-    local tmp = vim.split(fn.globpath(config_path, '*/plugins.lua'), '\n')
+    local tmp = vim.split(fn.globpath(config_path, '**/plugins.lua'), '\n')
 
     for _, f in ipairs(tmp) do
       list[#list + 1] = string.match(f, pattern)
@@ -98,7 +98,7 @@ local M = setmetatable({}, {
 })
 
 -- add a plugin to _setup.repos so that we can manage them
-function M:add(repo)
+function M.add(repo)
   if not _setup.repos then
     _setup.repos = {}
   end
@@ -106,7 +106,7 @@ function M:add(repo)
   table.insert(_setup.repos, repo)
 end
 
-function M:load()
+function M.load()
   -- register packer cmd
   local cmds = {
     'Compile',
