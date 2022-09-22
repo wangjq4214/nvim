@@ -1,56 +1,27 @@
 local M = {}
 
-function M.nvim_tree()
-  require('nvim-tree').setup({
-    view = {
-      width = 30,
-      height = 30,
-      side = 'left',
-      preserve_window_proportions = false,
-      number = false,
-      relativenumber = false,
-      signcolumn = 'yes',
-      hide_root_folder = false,
-      mappings = {
-        list = {
-          { key = { 'l' }, action = 'edit' },
-          { key = { 's' }, action = 'split' },
-          { key = { 'v' }, action = 'vsplit' },
-        },
-      },
-    },
-    renderer = {
-      icons = {
-        glyphs = {
-          default = '',
-          symlink = '',
-          folder = {
-            arrow_closed = '',
-            arrow_open = '',
-            default = '',
-            empty = '',
-            empty_open = '',
-            open = '',
-            symlink = '',
-            symlink_open = '',
-          },
-          git = {
-            deleted = '',
-            ignored = '',
-            renamed = '',
-            staged = '',
-            unmerged = '',
-            unstaged = '',
-            untracked = 'ﲉ',
-          },
-        },
-      },
-    },
-  })
-end
+function M.nvim_treesitter()
+  vim.api.nvim_command('set foldmethod=expr')
+  vim.api.nvim_command('set foldexpr=nvim_treesitter#foldexpr()')
 
-function M.telescope()
-  
+  require('nvim-treesitter.configs').setup({
+    ensure_installed = 'all',
+    ignore_install = { 'phpdoc', 'vala', 'tiger', 'slint', 'eex', 'tlaplus' },
+    highlight = {
+      enable = true
+    },
+    textobjects = {
+      select = {
+        enable = true,
+        keymap = {
+          ['af'] = '@function.outer',
+          ['if'] = '@function.inner',
+          ['ac'] = '@class.outer',
+          ['ic'] = '@class.inner'
+        }
+      }
+    }
+  })
 end
 
 return M

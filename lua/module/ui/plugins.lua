@@ -5,3 +5,9 @@ add({
   'glepnir/zephyr-nvim',
   config = cfg.zephyr
 })
+
+add({
+  'nvim-lualine/lualine.nvim',
+  config = cfg.lualine,
+  requires = { 'kyazdani42/nvim-web-devicons', opt = true }
+})

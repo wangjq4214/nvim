@@ -2,20 +2,14 @@ local add = require('core.packer').add
 local cfg = require('module.editor.configs')
 
 add({
-  'kyazdani42/nvim-tree.lua',
-  cmd = 'NvimTreeToggle',
-  config = cfg.nvim_tree,
-  requires = {
-    'kyazdani42/nvim-web-devicons',
-  }
+  'nvim-treesitter/nvim-treesitter',
+  event = 'BufRead',
+  run = ':TSUpdate',
+  after = 'telescope.nvim',
+  config = cfg.nvim_treesitter
 })
 
 add({
-  'nvim-telescope/telescope.nvim',
-  cmd = 'Telescope',
-  requires = {
-    { 'nvim-lua/plenary.nvim', opt = true },
-    { 'nvim-telescope/telescope-fzy-native.nvim', opt = true },
-    { 'nvim-telescope/telescope-file-browser.nvim', opt = true }
-  }
+  'nvim-treesitter/nvim-treesitter-textobjects',
+  after = 'nvim-treesitter'
 })
