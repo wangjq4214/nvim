@@ -2,8 +2,8 @@ local lualineCfg = require('module.ui.lualine_cfg')
 
 local M = {}
 
-function M.zephyr()
-  vim.cmd('colorscheme zephyr')
+function M.tokyonight()
+  vim.cmd('colorscheme tokyonight-storm')
 end
 
 function M.lualine()
