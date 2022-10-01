@@ -1,25 +1,10 @@
-local add = require('core.packer').add
-local cfg = require('module.lsp.configs')
-
-local enable_lsp_filetype = {
-  'go',
-  'lua',
-  'sh',
-  'rust',
-  'c',
-  'cpp',
-  'typescript',
-  'typescriptreact',
-  'javascript',
-  'javascriptreact',
-  'json',
-  'python',
-  'java'
-}
+local add      = require('core.packer').add
+local cfg      = require('module.lsp.configs')
+local filetype = require('util.filetype')
 
 add({
   'neovim/nvim-lspconfig',
-  ft = enable_lsp_filetype,
+  ft = filetype.enable_lsp_filetype,
   config = cfg.lspconfig
 })
 

@@ -14,6 +14,19 @@ add({
   after = 'nvim-treesitter'
 })
 
+add({
+  'lukas-reineke/indent-blankline.nvim',
+  after = 'nvim-treesitter',
+  config = cfg.indent_blankline
+})
+
+add({
+  'lewis6991/gitsigns.nvim',
+  event = { 'BufRead', 'BufNewFile' },
+  config = cfg.gitsigns,
+  requires = { 'nvim-lua/plenary.nvim', opt = true },
+})
+
 -- add({
 --   'akinsho/bufferline.nvim',
 --   tag = "v2.*",
