@@ -10,6 +10,14 @@ add({
   }
 })
 
+add({
+  'akinsho/bufferline.nvim',
+  tag = "v2.*",
+  events = { 'BufAdd' },
+  config = cfg.bufferline,
+  requires = 'kyazdani42/nvim-web-devicons'
+})
+
 -- don't have config
 add({
   'nvim-telescope/telescope.nvim',
