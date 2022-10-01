@@ -11,3 +11,8 @@ add({
   config = cfg.lualine,
   requires = { 'kyazdani42/nvim-web-devicons', opt = true }
 })
+
+add({
+  'glepnir/dashboard-nvim',
+  config = cfg.dashboard
+})
