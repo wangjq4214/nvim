@@ -1,0 +1,50 @@
+{
+  "<Leader>pu": {
+    "mode": "n",
+    "cmd": "PackerUpdate",
+    "option": {
+      "noremap": true,
+      "silent": true
+    }
+  },
+  "<Leader>pi": {
+    "mode": "n",
+    "cmd": "PackerInstall",
+    "option": {
+      "noremap": true,
+      "silent": true
+    }
+  },
+  "<Leader>pc": {
+    "mode": "n",
+    "cmd": "PackerCompile",
+    "option": {
+      "noremap": true,
+      "silent": true
+    }
+  },
+  "<Leader>li": {
+    "mode": "n",
+    "cmd": "LspInfo",
+    "option": {
+      "noremap": true,
+      "silent": true
+    }
+  },
+  "<Leader>ll": {
+    "mode": "n",
+    "cmd": "LspLog",
+    "option": {
+      "noremap": true,
+      "silent": true
+    }
+  },
+  "<Leader>lr": {
+    "mode": "n",
+    "cmd": "LspRestart",
+    "option": {
+      "noremap": true,
+      "silent": true
+    }
+  }
+}
