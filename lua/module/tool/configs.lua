@@ -75,7 +75,31 @@ function M.bufferline()
 end
 
 function M.telescope()
+  local tele = require('telescope')
 
+  tele.setup({
+    defaults = {
+      prompt_prefix = '🔭 ',
+      selection_caret = ' ',
+      layout_config = {
+        horizontal = { prompt_position = 'top', results_width = 0.6 },
+        vertical = { mirror = false },
+      },
+      sorting_strategy = 'ascending',
+      file_previewer = require('telescope.previewers').vim_buffer_cat.new,
+      grep_previewer = require('telescope.previewers').vim_buffer_vimgrep.new,
+      qflist_previewer = require('telescope.previewers').vim_buffer_qflist.new,
+    },
+    extensions = {
+      fzy_native = {
+        override_generic_sorter = false,
+        override_file_sorter = true,
+      },
+    },
+  })
+
+  tele.load_extension('fzy_native')
+  tele.load_extension('file_browser')
 end
 
 return M
