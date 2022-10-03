@@ -23,7 +23,7 @@ function M.dashboard()
   end
 
   db.custom_center = {
-    { icon = '  ', desc = 'Projects', action = 'Telescope projects' },
+    { icon = '  ', desc = 'Projects', action = 'Telescope project' },
     { icon = '  ', desc = 'Recently files', action = 'Telescope oldfiles' },
   }
 

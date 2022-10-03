@@ -75,6 +75,13 @@ function M.bufferline()
 end
 
 function M.telescope()
+  if not packer_plugins['plenary.nvim'].loaded then
+    vim.cmd('packadd plenary.nvim')
+    vim.cmd('packadd telescope-fzy-native.nvim')
+    vim.cmd('packadd telescope-file-browser.nvim')
+    vim.cmd('packadd telescope-project')
+  end
+
   local tele = require('telescope')
 
   tele.setup({
@@ -95,11 +102,16 @@ function M.telescope()
         override_generic_sorter = false,
         override_file_sorter = true,
       },
+      project = {
+        theme = "dropdown",
+        sync_with_nvim_tree = true,
+      }
     },
   })
 
   tele.load_extension('fzy_native')
   tele.load_extension('file_browser')
+  tele.load_extension('project')
 end
 
 return M
