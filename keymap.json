@@ -46,5 +46,93 @@
       "noremap": true,
       "silent": true
     }
+  },
+  "[e": {
+    "mode": "n",
+    "cmd": "Lspsaga diagnostic_jump_prev",
+    "option": {
+      "noremap": true,
+      "silent": true
+    }
+  },
+  "]e": {
+    "mode": "n",
+    "cmd": "Lspsaga diagnostic_jump_next",
+    "option": {
+      "noremap": true,
+      "silent": true
+    }
+  },
+  "gh": {
+    "mode": "n",
+    "cmd": "Lspsaga hover_doc",
+    "option": {
+      "noremap": true,
+      "silent": true
+    }
+  },
+  "ga": {
+    "mode": "n",
+    "cmd": "Lspsaga code_action",
+    "option": {
+      "noremap": true,
+      "silent": true
+    }
+  },
+  "gd": {
+    "mode": "n",
+    "cmd": "Lspsaga peek_definition",
+    "option": {
+      "noremap": true,
+      "silent": true
+    }
+  },
+  "gs": {
+    "mode": "n",
+    "cmd": "Lspsaga signature_help",
+    "option": {
+      "noremap": true,
+      "silent": true
+    }
+  },
+  "gr": {
+    "mode": "n",
+    "cmd": "Lspsaga rename",
+    "option": {
+      "noremap": true,
+      "silent": true
+    }
+  },
+  "<Leader>n": {
+    "mode": "n",
+    "cmd": "DashboardNewFile",
+    "option": {
+      "noremap": true,
+      "silent": true
+    }
+  },
+  "<Leader>ss": {
+    "mode": "n",
+    "cmd": "SessionSave",
+    "option": {
+      "noremap": true,
+      "silent": true
+    }
+  },
+  "<Leader>sl": {
+    "mode": "n",
+    "cmd": "SessionLoad",
+    "option": {
+      "noremap": true,
+      "silent": true
+    }
+  },
+  "<Leader>t": {
+    "mode": "n",
+    "cmd": "NvimTreeToggle",
+    "option": {
+      "noremap": true,
+      "silent": true
+    }
   }
 }

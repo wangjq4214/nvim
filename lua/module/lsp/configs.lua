@@ -35,7 +35,6 @@ function M.nvim_cmp()
       fields = { 'abbr', 'kind', 'menu' },
     },
     mapping = cmp.mapping.preset.insert({
-      ['<C-e>'] = cmp.config.disable,
       ['<CR>'] = cmp.mapping.confirm({ select = true })
     }),
     sources = {
