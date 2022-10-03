@@ -26,3 +26,9 @@ add({
   config = cfg.gitsigns,
   requires = { 'nvim-lua/plenary.nvim', opt = true },
 })
+
+add({
+  'numToStr/Comment.nvim',
+  event = 'BufRead',
+  config = cfg.comment
+})

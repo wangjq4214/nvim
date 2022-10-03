@@ -75,4 +75,8 @@ function M.gitsigns()
   })
 end
 
+function M.comment()
+  require('Comment').setup({})
+end
+
 return M
