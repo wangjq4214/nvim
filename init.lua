@@ -1,2 +1,4 @@
--- load plugins
-require('core')
+local core = require('core')
+
+core.init()
+
