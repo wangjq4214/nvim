@@ -51,7 +51,7 @@ return {
       options = {
         diagnostics = 'nvim_lsp',
         always_show_bufferline = false,
-        diagnostics = function(_, _, diag)
+        diagnostics_indicator = function(_, _, diag)
           local icons = require('lazyvim.config').icons.diagnostics
           local ret = (diag.error and icons.Error .. diag.error .. ' ' or '')
             .. (diag.warning and icons.Warn .. diag.warning or '')
@@ -72,7 +72,7 @@ return {
   {
     'nvim-lualine/lualine.nvim',
     event = 'VeryLazy',
-    opts = function(plugin)
+    opts = function(_)
       local icons = require('core').icons
 
       local function fg(name)

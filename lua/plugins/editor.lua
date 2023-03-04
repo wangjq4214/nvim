@@ -1,4 +1,4 @@
-function telescope_util(builtin, opts)
+local function telescope_util(builtin, opts)
   local params = { builtin = builtin, opts = opts }
 
   return function()
@@ -53,7 +53,7 @@ return {
     init = function()
       vim.g.neo_tree_remove_legacy_commands = 1
       if vim.fn.argc() == 1 then
-        local stat = vim.loop.fs_stat(vim.fn.argv(0))
+        local stat = vim.loop.fs_stat(vim.fn.argv[0])
         if stat and stat.type == 'directory' then
           require('neo-tree')
         end
@@ -65,7 +65,6 @@ return {
         follow_current_file = true,
       },
       window = {
-        position = 'right',
         mappings = {
           ['<space>'] = 'none'
         }
@@ -224,7 +223,7 @@ return {
         changedelete = { text = '▎' },
         untracked = { text = '▎' },
       },
-      on_attach = function()
+      on_attach = function(buffer)
         local gs = package.loaded.gitsigns
 
         local function map(mode, l, r, desc)
@@ -282,7 +281,7 @@ return {
     'echasnovski/mini.bufremove',
     keys = {
       { '<leader>bd', function() require('mini.bufremove').delete(0, false) end, desc = 'Delete Buffer' },
-      { '<leader>bD', function() reuqire('mini.bufremove').delete(0, true) end, desc = 'Delete Buffer (Force)' },
+      { '<leader>bD', function() require('mini.bufremove').delete(0, true) end, desc = 'Delete Buffer (Force)' },
     },
   },
   -- better diagnostics list and others

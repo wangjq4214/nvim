@@ -40,7 +40,7 @@ function Format.format()
 end
 
 function Format.on_attach(client, buf)
-  if 
+  if
     client.config
     and client.config.capabilities
     and client.config.capabilities.documentFormattingProvider == false
@@ -65,12 +65,12 @@ local Key = {}
 
 Key._key = nil
 
-function Key.diagnostic_goto(next, serverity)
+function Key.diagnostic_goto(next, severity)
   local go = next and vim.diagnostic.goto_next or vim.diagnostic.goto_prev
-  serverity = serverity and vim.diagnostic.serverity[serverity] or nil
+  severity = severity and vim.diagnostic.severity[severity] or nil
 
   return function()
-    go({ serverity = serverity })
+    go({ severity = severity })
   end
 end
 
@@ -163,14 +163,27 @@ return {
         formatting_options = nil,
         timeout_ms = nil,
       },
-      servers = {},
+      servers = {
+        lua_ls = {
+          settings = {
+            Lua = {
+              workspace = {
+                checkThirdParty = false,
+              },
+              completion = {
+                callSnippet = 'Replace',
+              },
+            },
+          },
+        },
+      },
       setup = {},
     },
-    config = function(plugin, opts)
+    config = function(_, opts)
       Format.autoformat = opts.autoformat
 
       require('utils').on_attach(function(client, buffer)
-        Formath.on_attach(client, buffer)
+        Format.on_attach(client, buffer)
         Key.on_attach(client, buffer)
       end)
 
@@ -194,7 +207,7 @@ return {
             return
           end
         elseif opts.setup['*'] then
-          if opts.setup['*'](server, server_opts) then 
+          if opts.setup['*'](server, server_opts) then
             return
           end
         end
@@ -235,7 +248,7 @@ return {
     dependencies = { 'mason.nvim' },
     opts = function()
       local nls = require('null-ls')
-      
+
       return {
         sources = {}
       }
@@ -256,7 +269,7 @@ return {
       },
     },
     ---@param opts MasonSettings | {ensure_installed: string[]}
-    config = function(plugin, opts)
+    config = function(_, opts)
       require('mason').setup(opts)
       local mr = require('mason-registry')
       for _, tool in ipairs(opts.ensure_installed) do

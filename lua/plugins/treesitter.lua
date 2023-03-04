@@ -15,13 +15,13 @@ return {
           if opts.textobjects then
             for _, mod in ipairs({ 'move', 'select', 'swap', 'lsp_interop' }) do
               if opts.textobjects[mod] and opts.textobjects[mod].enable then
-                enable = true
+                enabled = true
                 break
               end
             end
           end
 
-          if not enable then
+          if not enabled then
             require('lazy.core.loader').disable_rtp_plugin('nvim-tree-sitter-textobjects')
           end
         end,
