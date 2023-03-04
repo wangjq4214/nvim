@@ -22,6 +22,55 @@ function M.opts(name)
   return Plugin.values(plugin, 'opts', false)
 end
 
+function M.has(plugin)
+  return require('lazy.core.config').plugins[plugin] ~= nil
+end
+
+function M.float_term(cmd, opts)
+  opts = vim.tbl_deep_extend('force', {
+    size = { width = 0.9, height = 0.9 },
+  }, opts or {})
+  require('lazy.util').float_term(cmd, opts)
+end
+
+---@param silent boolean?
+---@param values? {[1]:any, [2]:any}
+function M.toggle(option, silent, values)
+  local util = require('lazy.core.util')
+  if values then
+    if vim.opt_local[option]:get() == values[1] then
+      vim.opt_local[option] = values[2]
+    else
+      vim.opt_local[option] = values[1]
+    end
+    return util.info(
+      'Set ' .. option .. ' to ' .. vim.opt_local[option]:get(),
+      { title = 'Option' }
+    )
+  end
+  vim.opt_local[option] = not vim.opt_local[option]:get()
+  if not silent then
+    if vim.opt_local[option]:get() then
+      util.info('Enabled ' .. option, { title = 'Option' })
+    else
+      util.warn('Disabled ' .. option, { title = 'Option' })
+    end
+  end
+end
+
+local enabled = true
+function M.toggle_diagnostics()
+  local util = require('lazy.core.util')
+  enabled = not enabled
+  if enabled then
+    vim.diagnostic.enable()
+    util.info('Enabled diagnostics', { title = 'Diagnostics' })
+  else
+    vim.diagnostic.disable()
+    util.warn('Disabled diagnostics', { title = 'Diagnostics' })
+  end
+end
+
 -- return the root directory based on:
 -- * lsp workspace folders
 -- * lsp root_dir

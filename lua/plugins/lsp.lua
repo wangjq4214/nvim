@@ -1,27 +1,10 @@
-local util = require('lazy.core.util')
-
 local Format = {}
 
 Format.autoformat = true
 
-function Format.toggle()
-  if vim.b.autoformat == false then
-    vim.b.autoformat = nil
-    Format.autoformat = true
-  else
-    Format.autoformat = not Format.autoformat
-  end
-
-  if Format.autoformat then
-    util.info('Enabled format on save', { title = 'Foramt' })
-  else
-    util.warn('Disabled format on save', { title = 'Format' })
-  end
-end
-
 function Format.format()
   local buf = vim.api.nvim_get_current_buf()
-  if vim.b.autoformat == false then
+  if Format.autoformat == false then
     return
   end
   local ft = vim.bo[buf].filetype
