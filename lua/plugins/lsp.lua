@@ -81,23 +81,56 @@ function Key.get()
     Key._key = {
       { '<leader>cd', vim.diagnostic.open_float, desc = 'Line Diagnostic' },
       { '<leader>cl', '<cmd>LspInfo<cr>', desc = 'Lsp Info' },
-      { 'gd', '<cmd>Telescope lsp_definitions<cr>', desc = 'Go To Definition', has = 'definition' },
+      {
+        'gd',
+        '<cmd>Telescope lsp_definitions<cr>',
+        desc = 'Go To Definition',
+        has = 'definition',
+      },
       { 'gr', '<cmd>Telescope lsp_references<cr>', desc = 'References' },
       { 'gD', vim.lsp.buf.declaration, desc = 'Go To Declaration' },
-      { 'gI', '<cmd>Telescope lsp_implementations<cr>', desc ='Go To Implementations' },
+      { 'gI', '<cmd>Telescope lsp_implementations<cr>', desc = 'Go To Implementations' },
       { 'gt', '<cmd>Telescope lsp_type_definitions<cr>', desc = 'Go To Type Definition' },
       { 'K', vim.lsp.buf.hover, desc = 'Hover' },
-      { 'gK', vim.lsp.buf.signature_help, desc = 'Signature Help', has = 'signatureHelp' },
-      { '<c-k>', vim.lsp.buf.signature_help, mode = 'i', desc = 'Signature Help', has = 'signatureHelp' },
+      {
+        'gK',
+        vim.lsp.buf.signature_help,
+        desc = 'Signature Help',
+        has = 'signatureHelp',
+      },
+      {
+        '<c-k>',
+        vim.lsp.buf.signature_help,
+        mode = 'i',
+        desc = 'Signature Help',
+        has = 'signatureHelp',
+      },
       { ']d', Key.diagnostic_goto(true), desc = 'Next Diagnostic' },
       { '[d', Key.diagnostic_goto(false), desc = 'Prev Diagnostic' },
       { ']e', Key.diagnostic_goto(true, 'ERROR'), desc = 'Next Error' },
       { '[e', Key.diagnostic_goto(false, 'ERROR'), desc = 'Prev Error' },
       { ']w', Key.diagnostic_goto(true, 'WARN'), desc = 'Next Warn' },
       { '[w', Key.diagnostic_goto(false, 'WARN'), desc = 'Prev Warn' },
-      { '<leader>ca', vim.lsp.buf.code_action, desc = 'Code Action', mode = { 'n', 'v' }, has = 'codeAction' },
-      { '<leader>cf', format, desc = 'Format Document', has ='documentFormatting' },
-      { '<leader>cf', format, desc = 'Format Range', mode = 'v', has = 'documentRangeFormatting' },
+      {
+        '<leader>ca',
+        vim.lsp.buf.code_action,
+        desc = 'Code Action',
+        mode = { 'n', 'v' },
+        has = 'codeAction',
+      },
+      {
+        '<leader>cf',
+        format,
+        desc = 'Format Document',
+        has = 'documentFormatting',
+      },
+      {
+        '<leader>cf',
+        format,
+        desc = 'Format Range',
+        mode = 'v',
+        has = 'documentRangeFormatting',
+      },
       {
         '<leader>cr',
         function()
@@ -195,7 +228,8 @@ return {
       vim.diagnostic.config(opts.diagnostics)
 
       local servers = opts.servers
-      local capalibities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities())
+      local capalibities =
+        require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities())
 
       local function setup(server)
         local server_opts = vim.tbl_deep_extend('force', {
@@ -250,13 +284,14 @@ return {
       local nls = require('null-ls')
 
       return {
-        sources = {}
+        sources = {
+          nls.builtins.formatting.stylua,
+        },
       }
     end,
   },
   -- cmdline tools and lsp servers
   {
-
     'williamboman/mason.nvim',
     cmd = 'Mason',
     keys = { { '<leader>cm', '<cmd>Mason<cr>', desc = 'Mason' } },
@@ -281,4 +316,3 @@ return {
     end,
   },
 }
-
