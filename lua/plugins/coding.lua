@@ -4,7 +4,7 @@ return {
     'L3MON4D3/LuaSnip',
     build = (not jit.os:find('Windows'))
         and 'echo -e "NOTE: jsregexp is optional, so not a big deal if it fails to build\n"; make install_jsregexp'
-        or nil,
+      or nil,
     dependencies = {
       'rafamadriz/friendly-snippets',
       config = function()
@@ -25,8 +25,20 @@ return {
         silent = true,
         mode = 'i',
       },
-      { '<tab>', function() require('luasnip').jump(1) end, mode = 's' },
-      { '<s-tab>', function() require('luasnip').jump(-1) end, mode = { 'i', 's' } },
+      {
+        '<tab>',
+        function()
+          require('luasnip').jump(1)
+        end,
+        mode = 's',
+      },
+      {
+        '<s-tab>',
+        function()
+          require('luasnip').jump(-1)
+        end,
+        mode = { 'i', 's' },
+      },
     },
   },
   -- completion
@@ -87,7 +99,7 @@ return {
           },
         },
       }
-    end
+    end,
   },
   -- auto pairs
   {
@@ -97,5 +109,81 @@ return {
       require('mini.pairs').setup(opts)
     end,
   },
-}
+  -- surround
+  {
+    'echasnovski/mini.surround',
+    keys = function(_, keys)
+      local plugin = require('lazy.core.config').spec.plugins['mini.surround']
+      local opts = require('lazy.core.plugin').values(plugin, 'opts', false)
+      local mappings = {
+        { opts.mappings.add, desc = 'Add Surrounding', mode = { 'n', 'v' } },
+        { opts.mappings.delete, desc = 'Delete surrounding' },
+        { opts.mappings.find, desc = 'Find right surrounding' },
+        { opts.mappings.find_left, desc = 'Find left surrounding' },
+        { opts.mappings.highlight, desc = 'Highlight surrounding' },
+        { opts.mappings.replace, desc = 'Replace surrounding' },
+        { opts.mappings.update_n_lines, desc = 'Update `MiniSurround.config.n_lines`' },
+      }
 
+      mappings = vim.tbl_filter(function(m)
+        return m[1] and #m[1] > 0
+      end, mappings)
+
+      return vim.list_extend(mappings, keys)
+    end,
+    opts = {
+      mappings = {
+        add = 'gza',
+        delete = 'gzd',
+        find = 'gzf',
+        find_left = 'gzF',
+        highlight = 'gzh',
+        replace = 'gzr',
+        update_n_lines = 'gzn',
+      },
+    },
+    config = function(_, opts)
+      require('mini.surround').setup(opts)
+    end,
+  },
+  -- comments
+  { 'JoosepAlviste/nvim-ts-context-commentstring', lazy = true },
+  {
+    'echasnovski/mini.comment',
+    event = 'VeryLazy',
+    opts = {
+      hooks = {
+        pre = function()
+          require('ts_context_commentstring.internal').update_commentstring({})
+        end,
+      },
+    },
+    config = function(opts)
+      require('mini.comment').setup(opts)
+    end,
+  },
+  -- better text-object
+  {
+    'echasnovski/mini.ai',
+    event = 'VeryLazy',
+    dependencies = { 'nvim-treesitter-textobjects' },
+    opts = function()
+      local ai = require('mini.ai')
+
+      return {
+        n_lines = 500,
+        custom_textobjects = {
+          o = ai.gen_spec.treesitter({
+            a = { '@block.outer', '@conditional.outer', '@loop.outer' },
+            i = { '@block.inner', '@conditional.inner', '@loop.inner' },
+          }, {}),
+          f = ai.gen_spec.treesitter({ a = '@function.outer', i = '@function.inner' }, {}),
+          c = ai.gen_spec.treesitter({ a = '@class.outer', i = '@class.inner' }, {}),
+        },
+      }
+    end,
+    config = function(_, opts)
+      require('mini.ai').setup(opts)
+    end,
+  },
+}

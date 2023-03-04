@@ -45,14 +45,18 @@ return {
     event = 'VeryLazy',
     keys = {
       { '<leader>bp', '<cmd>BufferLineTogglePin<cr>', desc = 'Toggle Bufferline Pin' },
-      { '<leader>bP', '<cmd>BufferLineGroupClose ungrouped<cr>', desc = 'Delete Non-pinned buffers' },
+      {
+        '<leader>bP',
+        '<cmd>BufferLineGroupClose ungrouped<cr>',
+        desc = 'Delete Non-pinned buffers',
+      },
     },
     opts = {
       options = {
         diagnostics = 'nvim_lsp',
         always_show_bufferline = false,
         diagnostics_indicator = function(_, _, diag)
-          local icons = require('lazyvim.config').icons.diagnostics
+          local icons = require('core').icons.diagnostics
           local ret = (diag.error and icons.Error .. diag.error .. ' ' or '')
             .. (diag.warning and icons.Warn .. diag.warning or '')
           return vim.trim(ret)
@@ -102,24 +106,40 @@ return {
               },
             },
             { 'filetype', icon_only = true, separator = '', padding = { left = 1, right = 0 } },
-            { 'filename', path = 1, symbols = { modified = "  ", readonly = "", unnamed = "" } },
+            { 'filename', path = 1, symbols = { modified = '  ', readonly = '', unnamed = '' } },
             {
-              function() return require('nvim-navic').get_location() end,
-              cond = function() return package.loaded['nvim-navic'] and require('nvim-navic').is_available() end,
+              function()
+                return require('nvim-navic').get_location()
+              end,
+              cond = function()
+                return package.loaded['nvim-navic'] and require('nvim-navic').is_available()
+              end,
             },
           },
           lualine_x = {
             {
-              function() return require('noice').api.status.command.get() end,
-              cond = function() return package.loaded['noice'] and require('noice').api.status.command.has() end,
+              function()
+                return require('noice').api.status.command.get()
+              end,
+              cond = function()
+                return package.loaded['noice'] and require('noice').api.status.command.has()
+              end,
               color = fg('Statement'),
             },
             {
-              function() return require('noice').api.status.mode.get() end,
-              cond = function() return package.loaded['noice'] and require('noice').api.status.mode.has() end,
+              function()
+                return require('noice').api.status.mode.get()
+              end,
+              cond = function()
+                return package.loaded['noice'] and require('noice').api.status.mode.has()
+              end,
               color = fg('Constant'),
             },
-            { require('lazy.status').updates, cond = require('lazy.status').has_updates, color = fg('Special') },
+            {
+              require('lazy.status').updates,
+              cond = require('lazy.status').has_updates,
+              color = fg('Special'),
+            },
             {
               'diff',
               symbols = {
@@ -135,7 +155,7 @@ return {
           },
           lualine_z = {
             function()
-              return " " .. os.date("%R")
+              return ' ' .. os.date('%R')
             end,
           },
         },
@@ -194,12 +214,59 @@ return {
       },
     },
     keys = {
-      { '<S-Enter>', function() require('noice').redirect(vim.fn.getcmdline()) end, mode = 'c', desc = 'Redirect Cmdline' },
-      { '<leader>snl', function() require('noice').cmd('last') end, desc = 'Noice Last Message' },
-      { '<leader>snh', function() require('noice').cmd('history') end, desc = 'Noice History' },
-      { '<leader>sna', function() require('noice').cmd('all') end, desc = 'Noice All' },
-      { '<c-f>', function() if not require('noice.lsp').scroll(4) then return '<c-f>' end end, silent = true, expr = true, desc = 'Scroll Forward', mode = {'i', 'n', 's'} },
-      { '<c-b>', function() if not require('noice.lsp').scroll(-4) then return '<c-b>' end end, silent = true, expr = true, desc = 'Scroll Backward', mode = {'i', 'n', 's'}},
+      {
+        '<S-Enter>',
+        function()
+          require('noice').redirect(vim.fn.getcmdline())
+        end,
+        mode = 'c',
+        desc = 'Redirect Cmdline',
+      },
+      {
+        '<leader>snl',
+        function()
+          require('noice').cmd('last')
+        end,
+        desc = 'Noice Last Message',
+      },
+      {
+        '<leader>snh',
+        function()
+          require('noice').cmd('history')
+        end,
+        desc = 'Noice History',
+      },
+      {
+        '<leader>sna',
+        function()
+          require('noice').cmd('all')
+        end,
+        desc = 'Noice All',
+      },
+      {
+        '<c-f>',
+        function()
+          if not require('noice.lsp').scroll(4) then
+            return '<c-f>'
+          end
+        end,
+        silent = true,
+        expr = true,
+        desc = 'Scroll Forward',
+        mode = { 'i', 'n', 's' },
+      },
+      {
+        '<c-b>',
+        function()
+          if not require('noice.lsp').scroll(-4) then
+            return '<c-b>'
+          end
+        end,
+        silent = true,
+        expr = true,
+        desc = 'Scroll Backward',
+        mode = { 'i', 'n', 's' },
+      },
     },
   },
   -- alpha dashboard
@@ -259,7 +326,11 @@ return {
         callback = function()
           local stats = require('lazy').stats()
           local ms = (math.floor(stats.startuptime * 100 + 0.5) / 100)
-          dashboard.section.footer.val = '⚡ Neovim loaded ' .. stats.count .. ' plugins in ' .. ms .. 'ms'
+          dashboard.section.footer.val = '⚡ Neovim loaded '
+            .. stats.count
+            .. ' plugins in '
+            .. ms
+            .. 'ms'
           pcall(vim.cmd.AlphaRedraw)
         end,
       })
@@ -313,9 +384,9 @@ return {
           return {
             { icon, guifg = color },
             { ' ' },
-            { filename }
+            { filename },
           }
-        end
+        end,
       })
     end,
   },
@@ -360,4 +431,3 @@ return {
     end,
   },
 }
-
