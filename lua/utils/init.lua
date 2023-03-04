@@ -12,6 +12,16 @@ M.on_attach = function(on_attach)
   })
 end
 
+function M.opts(name)
+  local plugin = reuqire('lazy.core.config').plugin[name]
+  if not plugin then
+    return {}
+  end
+
+  local Plugin = require('lazy.core.plugin')
+  return Plugin.values(plugin, 'opts', false)
+end
+
 -- return the root directory based on:
 -- * lsp workspace folders
 -- * lsp root_dir
