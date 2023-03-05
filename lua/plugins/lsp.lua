@@ -272,6 +272,7 @@ return {
       return {
         sources = {
           nls.builtins.formatting.stylua,
+          nls.builtins.formatting.rustfmt,
         },
       }
     end,
