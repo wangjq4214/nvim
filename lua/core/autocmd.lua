@@ -65,3 +65,14 @@ vim.api.nvim_create_autocmd('FileType', {
     vim.opt_local.spell = true
   end,
 })
+
+-- auto save
+vim.api.nvim_create_autocmd(
+  { 'InsertLeave', 'TextChanged', 'TextChangedI', 'CursorHoldI', 'CompleteDone' },
+  {
+    group = augroup('auto_save'),
+    callback = function()
+      vim.fn.execute('silent! write')
+    end,
+  }
+)

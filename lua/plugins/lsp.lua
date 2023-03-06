@@ -193,7 +193,11 @@ return {
           },
         },
         gopls = {},
-        rust_analyzer = {},
+        rust_analyzer = {
+          checkOnSave = {
+            command = 'clippy',
+          },
+        },
         clangd = {},
       },
       setup = {},
