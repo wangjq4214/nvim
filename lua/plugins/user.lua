@@ -31,13 +31,6 @@ return {
     end,
   },
   {
-    "ggandor/leap.nvim",
-    config = function(_, _)
-      local leap = require "leap"
-      leap.create_default_mappings()
-    end,
-  },
-  {
     "nvim-neo-tree/neo-tree.nvim",
     opts = function(_, opts) opts.window.position = "right" end,
   },
