@@ -13,4 +13,6 @@ return {
   { import = "astrocommunity.motion.nvim-surround" },
   -- color scheme
   { import = "astrocommunity.colorscheme.catppuccin" },
+  -- cmp
+  { import = "astrocommunity.completion.copilot-cmp" },
 }
