@@ -5,7 +5,7 @@ return {
     opts = {
       provider = "deepseek",
       vendors = {
-        -- @type AvanteProvider
+        --- @type AvanteProvider
         ["deepseek"] = {
           endpoint = "https://api.deepseek.com/chat/completions",
           model = "deepseek-coder",
@@ -27,7 +27,6 @@ return {
               },
             }
           end,
-          --
           parse_response_data = function(data_stream, event_state, opts)
             require("avante.providers").copilot.parse_response(data_stream, event_state, opts)
           end,
