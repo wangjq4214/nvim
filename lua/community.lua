@@ -14,5 +14,5 @@ return {
   -- color scheme
   { import = "astrocommunity.colorscheme.catppuccin" },
   -- cmp
-  { import = "astrocommunity.completion.copilot-cmp" },
+  { import = "astrocommunity.completion.avante-nvim" },
 }
