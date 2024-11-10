@@ -4,6 +4,10 @@ return {
     "yetone/avante.nvim",
     opts = {
       provider = "deepseek",
+      auto_suggestions_provider = "deepseek",
+      behaviour = {
+        auto_suggestions = true,
+      },
       vendors = {
         --- @type AvanteProvider
         ["deepseek"] = {
