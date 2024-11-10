@@ -27,7 +27,7 @@ git clone https://github.com/wangjq/nvim ~/.config/nvim
 nvim
 ```
 
-#### Additional
+## Additional
 
 Maybe need to install lazygit, and the cmds are as follows:
 
