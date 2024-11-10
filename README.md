@@ -1,8 +1,8 @@
-# AstroNvim Template
+# AstroNvim Configuration for QUAN
 
-**NOTE:** This is for AstroNvim v4+
+**NOTE:** This is used for AstroNvim v4+
 
-A template for getting started with [AstroNvim](https://github.com/AstroNvim/AstroNvim)
+This project is form [AstroNvim](https://github.com/AstroNvim/AstroNvim) template.
 
 ## 🛠️ Installation
 
@@ -15,20 +15,29 @@ mv ~/.local/state/nvim ~/.local/state/nvim.bak
 mv ~/.cache/nvim ~/.cache/nvim.bak
 ```
 
-#### Create a new user repository from this template
-
-Press the "Use this template" button above to create a new repository to store your user configuration.
-
-You can also just clone this repository directly if you do not want to track your user configuration in GitHub.
-
 #### Clone the repository
 
 ```shell
-git clone https://github.com/<your_user>/<your_repository> ~/.config/nvim
+git clone https://github.com/wangjq/nvim ~/.config/nvim
 ```
 
 #### Start Neovim
 
 ```shell
 nvim
+```
+
+#### Additional
+
+Maybe need to install lazygit, and the cmds are as follows:
+
+```shell
+# For mac
+brew install lazygit
+
+# For Ubuntu
+LAZYGIT_VERSION=$(curl -s "https://api.github.com/repos/jesseduffield/lazygit/releases/latest" | \grep -Po '"tag_name": *"v\K[^"]*')
+curl -Lo lazygit.tar.gz "https://github.com/jesseduffield/lazygit/releases/download/v${LAZYGIT_VERSION}/lazygit_${LAZYGIT_VERSION}_Linux_x86_64.tar.gz"
+tar xf lazygit.tar.gz lazygit
+sudo install lazygit -D -t /usr/local/bin/
 ```
