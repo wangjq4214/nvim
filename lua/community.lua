@@ -8,6 +8,7 @@ return {
   -- Pack import
   { import = "astrocommunity.pack.lua" },
   { import = "astrocommunity.pack.python-ruff" },
+  { import = "astrocommunity.pack.rust" },
   -- Motion import
   { import = "astrocommunity.motion.leap-nvim" },
   { import = "astrocommunity.motion.nvim-surround" },
