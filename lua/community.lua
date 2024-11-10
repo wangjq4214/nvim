@@ -13,6 +13,8 @@ return {
   { import = "astrocommunity.motion.nvim-surround" },
   -- color scheme
   { import = "astrocommunity.colorscheme.catppuccin" },
+  { import = "astrocommunity.colorscheme.tokyodark-nvim" },
+  { import = "astrocommunity.colorscheme.oxocarbon-nvim" },
   -- cmp
   { import = "astrocommunity.completion.avante-nvim" },
 }
