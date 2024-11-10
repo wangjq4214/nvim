@@ -29,7 +29,7 @@ nvim
 
 ## Additional
 
-Maybe need to install lazygit, and the cmds are as follows:
+Maybe need to install [lazygit](https://github.com/jesseduffield/lazygit), and the cmds are as follows:
 
 ```shell
 # For mac
