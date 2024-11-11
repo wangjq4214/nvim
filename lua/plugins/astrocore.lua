@@ -11,7 +11,7 @@ return {
   opts = {
     mappings = {
       t = {
-        ["<esc>"] = { [[<C-\><C-n>]], desc = "Enter normal mode" },
+        ["<C-q>"] = { [[<C-\><C-n>]], desc = "Enter normal mode" },
         ["<C-w>"] = { [[<C-\><C-n><C-w>]], desc = "Cursor current buffer" },
       },
     },
