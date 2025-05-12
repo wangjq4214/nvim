@@ -1,9 +1,17 @@
+-- if true then return {} end -- WARN: REMOVE THIS LINE TO ACTIVATE THIS FILE
+
+-- You can also add or configure plugins by creating files in this `plugins/` folder
+-- PLEASE REMOVE THE EXAMPLES YOU HAVE NO INTEREST IN BEFORE ENABLING THIS FILE
+-- Here are some examples:
+
 ---@type LazySpec
 return {
   {
-    "goolord/alpha-nvim",
-    opts = function(_, opts)
-      opts.section.header.val = {
+    "folke/snacks.nvim",
+    opts = {
+      dashboard = {
+        preset = {
+          header = table.concat({
         "      ___           ___           ___           ___     ",
         "     /\\  \\         /\\__\\         /\\  \\         /\\__\\    ",
         "    /::\\  \\       /:/  /        /::\\  \\       /::|  |   ",
@@ -26,22 +34,18 @@ return {
         "     |::/  /     \\::::/__/    \\:\\__\\          /:/  /    ",
         "     /:/  /       ~~~~         \\/__/         /:/  /     ",
         "     \\/__/                                   \\/__/      ",
-      }
-      return opts
-    end,
+          }, "\n"),
+        },
+      },
+    },
   },
-  {
+{
     "nvim-neo-tree/neo-tree.nvim",
     opts = function(_, opts) opts.window.position = "right" end,
   },
 }
 
--- if true then return {} end -- WARN: REMOVE THIS LINE TO ACTIVATE THIS FILE
---
--- -- You can also add or configure plugins by creating files in this `plugins/` folder
--- -- Here are some examples:
---
--- ---@type LazySpec
+---@type LazySpec
 -- return {
 --
 --   -- == Examples of Adding Plugins ==
@@ -55,26 +59,28 @@ return {
 --
 --   -- == Examples of Overriding Plugins ==
 --
---   -- customize alpha options
+--   -- customize dashboard options
 --   {
---     "goolord/alpha-nvim",
---     opts = function(_, opts)
---       -- customize the dashboard header
---       opts.section.header.val = {
---         " █████  ███████ ████████ ██████   ██████",
---         "██   ██ ██         ██    ██   ██ ██    ██",
---         "███████ ███████    ██    ██████  ██    ██",
---         "██   ██      ██    ██    ██   ██ ██    ██",
---         "██   ██ ███████    ██    ██   ██  ██████",
---         " ",
---         "    ███    ██ ██    ██ ██ ███    ███",
---         "    ████   ██ ██    ██ ██ ████  ████",
---         "    ██ ██  ██ ██    ██ ██ ██ ████ ██",
---         "    ██  ██ ██  ██  ██  ██ ██  ██  ██",
---         "    ██   ████   ████   ██ ██      ██",
---       }
---       return opts
---     end,
+--     "folke/snacks.nvim",
+--     opts = {
+--       dashboard = {
+--         preset = {
+--           header = table.concat({
+--             " █████  ███████ ████████ ██████   ██████ ",
+--             "██   ██ ██         ██    ██   ██ ██    ██",
+--             "███████ ███████    ██    ██████  ██    ██",
+--             "██   ██      ██    ██    ██   ██ ██    ██",
+--             "██   ██ ███████    ██    ██   ██  ██████ ",
+--             "",
+--             "███    ██ ██    ██ ██ ███    ███",
+--             "████   ██ ██    ██ ██ ████  ████",
+--             "██ ██  ██ ██    ██ ██ ██ ████ ██",
+--             "██  ██ ██  ██  ██  ██ ██  ██  ██",
+--             "██   ████   ████   ██ ██      ██",
+--           }, "\n"),
+--         },
+--       },
+--     },
 --   },
 --
 --   -- You can disable default plugins as follows:
