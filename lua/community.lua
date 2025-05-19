@@ -7,10 +7,14 @@
 ---@type LazySpec
 return {
   "AstroNvim/astrocommunity",
+  -- pack
   { import = "astrocommunity.pack.lua" },
   { import = "astrocommunity.pack.vue" },
   { import = "astrocommunity.pack.go" },
   { import = "astrocommunity.pack.rust" },
   { import = "astrocommunity.pack.python-ruff" },
-  -- import/override with your plugins folder
+  -- motion
+  { import = "astrocommunity.motion.nvim-surround" },
+  { import = "astrocommunity.motion.mini-move" },
+  { import = "astrocommunity.motion.leap-nvim" },
 }
