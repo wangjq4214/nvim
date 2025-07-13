@@ -21,4 +21,6 @@ return {
   { import = "astrocommunity.comment.mini-comment" },
   -- map
   { import = "astrocommunity.split-and-window.mini-map" },
+  -- ai
+  { import = "astrocommunity.completion.avante-nvim" },
 }
