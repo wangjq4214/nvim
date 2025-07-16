@@ -23,4 +23,6 @@ return {
   { import = "astrocommunity.split-and-window.mini-map" },
   -- ai
   { import = "astrocommunity.completion.avante-nvim" },
+  -- color
+  { import = "astrocommunity.colorscheme.onedarkpro-nvim" },
 }
