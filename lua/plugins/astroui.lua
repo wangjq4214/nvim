@@ -7,10 +7,13 @@
 
 ---@type LazySpec
 return {
-  "AstroNvim/astroui",
-  opts = {
-    colorscheme = "vaporwave",
+  {
+    "AstroNvim/astroui",
+    opts = {
+      colorscheme = "sonokai",
+    },
   },
+  { "sainnhe/sonokai", config = function() vim.g.sonokai_style = "andromeda" end },
 }
 
 -- return {

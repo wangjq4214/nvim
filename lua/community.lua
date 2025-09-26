@@ -24,5 +24,6 @@ return {
   -- ai
   { import = "astrocommunity.completion.avante-nvim" },
   -- color
-  { import = "astrocommunity.colorscheme.onedarkpro-nvim" },
+  -- { import = "astrocommunity.colorscheme.onedarkpro-nvim" },
+  { import = "astrocommunity.colorscheme.sonokai" },
 }
