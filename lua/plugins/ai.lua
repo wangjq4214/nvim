@@ -40,7 +40,7 @@ return {
     {
       "<leader>ao",
       function() require("sidekick.cli").toggle { name = "codex", focus = true } end,
-      desc = "Sidekick Grok Toggle",
+      desc = "Sidekick Codex Toggle",
       mode = { "n", "v" },
     },
     {
