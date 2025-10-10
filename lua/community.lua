@@ -20,9 +20,8 @@ return {
   -- editor
   { import = "astrocommunity.comment.mini-comment" },
   -- ai
-  -- { import = "astrocommunity.completion.avante-nvim" },
   { import = "astrocommunity.completion.copilot-lua" },
   -- color
-  -- { import = "astrocommunity.colorscheme.onedarkpro-nvim" },
-  { import = "astrocommunity.colorscheme.sonokai" },
+  { import = "astrocommunity.colorscheme.onedarkpro-nvim" },
+  -- { import = "astrocommunity.colorscheme.sonokai" },
 }
