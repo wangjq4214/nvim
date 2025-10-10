@@ -10,7 +10,7 @@ return {
   {
     "AstroNvim/astroui",
     opts = {
-      colorscheme = "onedark_dark",
+      colorscheme = "onedark",
     },
   },
   -- { "sainnhe/sonokai", config = function() vim.g.sonokai_style = "andromeda" end },
