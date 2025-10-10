@@ -37,6 +37,11 @@ return {
           }, "\n"),
         },
       },
+      zen = {
+        toggles = {
+          diagnostics = true,
+        },
+      },
     },
   },
   {
