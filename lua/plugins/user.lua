@@ -37,8 +37,10 @@ return {
           }, "\n"),
         },
       },
+      scroll = { enable = true },
       zen = {
         toggles = {
+          dim = true,
           diagnostics = true,
         },
       },
