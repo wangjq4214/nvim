@@ -23,7 +23,7 @@ return {
       desc = "Goto/Apply Next Edit Suggestion",
     },
     {
-      "<c-l>",
+      "<c-m>",
       function() require("sidekick.cli").focus() end,
       mode = { "n", "x", "i", "t" },
       desc = "Sidekick Switch Focus",
