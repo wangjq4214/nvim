@@ -48,7 +48,14 @@ return {
   },
   {
     "nvim-neo-tree/neo-tree.nvim",
-    opts = function(_, opts) opts.window.position = "right" end,
+    opts = {
+      window = {
+        position = "right",
+        mappings = {
+          ["<space>"] = "none",
+        },
+      },
+    },
   },
 }
 

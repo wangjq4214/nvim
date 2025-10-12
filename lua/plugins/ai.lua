@@ -10,50 +10,87 @@ return {
       },
     },
   },
-  keys = {
-    {
-      "<tab>",
-      function()
-        -- if there is a next edit, jump to it, otherwise apply it if any
-        if not require("sidekick").nes_jump_or_apply() then
-          return "<Tab>" -- fallback to normal tab
-        end
-      end,
-      expr = true,
-      desc = "Goto/Apply Next Edit Suggestion",
-    },
-    {
-      "<c-m>",
-      function() require("sidekick.cli").focus() end,
-      mode = { "n", "x", "i", "t" },
-      desc = "Sidekick Switch Focus",
-    },
-    {
-      "<leader>aa",
-      function() require("sidekick.cli").toggle { focus = true } end,
-      desc = "Sidekick Toggle CLI",
-      mode = { "n", "v" },
-    },
-    {
-      "<leader>ac",
-      function() require("sidekick.cli").toggle { name = "claude", focus = true } end,
-      desc = "Sidekick Claude Toggle",
-      mode = { "n", "v" },
-    },
-    {
-      "<leader>ao",
-      function() require("sidekick.cli").toggle { name = "codex", focus = true } end,
-      desc = "Sidekick Codex Toggle",
-      mode = { "n", "v" },
-    },
-    {
-      "<leader>ap",
-      function() require("sidekick.cli").prompt() end,
-      desc = "Sidekick Ask Prompt",
-      mode = { "n", "v" },
-    },
-  },
   dependencies = {
+    {
+      "astronvim/astrocore",
+      opts = {
+        mappings = {
+          n = {
+            ["<tab>"] = {
+              function()
+                -- if there is a next edit, jump to it, otherwise apply it if any
+                if not require("sidekick").nes_jump_or_apply() then
+                  return "<Tab>" -- fallback to normal tab
+                end
+              end,
+              desc = "Sidekick Next Edit or Apply",
+              expr = true,
+            },
+            ["<C-n>"] = {
+              function() require("sidekick.cli").focus() end,
+              desc = "Sidekick Switch Focus",
+            },
+            ["<Leader>a"] = {
+              desc = "SSidekick",
+            },
+            ["<Leader>aa"] = {
+              function() require("sidekick.cli").toggle { focus = true } end,
+              desc = "Sidekick Toggle CLI",
+            },
+            ["<Leader>as"] = {
+              function() require("sidekick.cli").select() end,
+              desc = "Select CLI",
+            },
+            ["<Leader>ad"] = {
+              function() require("sidekick.cli").close() end,
+              desc = "Detach a CLI Session",
+            },
+            ["<Leader>at"] = {
+              function() require("sidekick.cli").send { msg = "{this}" } end,
+              desc = "Send This",
+            },
+            ["<Leader>af"] = {
+              function() require("sidekick.cli").send { msg = "{file}" } end,
+              desc = "Send File",
+            },
+            ["<Leader>ap"] = {
+              function() require("sidekick.cli").prompt() end,
+              desc = "Sidekick Select Prompt",
+            },
+          },
+          i = {
+            ["<C-n>"] = {
+              function() require("sidekick.cli").focus() end,
+              desc = "Sidekick Switch Focus",
+            },
+          },
+          x = {
+            ["<C-n>"] = {
+              function() require("sidekick.cli").focus() end,
+              desc = "Sidekick Switch Focus",
+            },
+            ["<Leader>at"] = {
+              function() require("sidekick.cli").send { msg = "{this}" } end,
+              desc = "Send This",
+            },
+            ["<Leader>av"] = {
+              function() require("sidekick.cli").send { msg = "{selection}" } end,
+              desc = "Send Visual Selection",
+            },
+            ["<Leader>ap"] = {
+              function() require("sidekick.cli").prompt() end,
+              desc = "Sidekick Select Prompt",
+            },
+          },
+          t = {
+            ["<C-n>"] = {
+              function() require("sidekick.cli").focus() end,
+              desc = "Sidekick Switch Focus",
+            },
+          },
+        },
+      },
+    },
     {
       "saghen/blink.cmp",
       ---@module 'blink.cmp'
