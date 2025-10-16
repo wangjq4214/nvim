@@ -1,12 +1,18 @@
 ---@type LazySpec
 return {
   "folke/sidekick.nvim",
+  ---@type sidekick.Config
   opts = {
     -- add any options here
     cli = {
       mux = {
         backend = "zellij",
         enabled = true,
+      },
+    },
+    nes = {
+      clear = {
+        esc = false,
       },
     },
   },
