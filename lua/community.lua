@@ -19,6 +19,7 @@ return {
   { import = "astrocommunity.motion.flash-nvim" },
   -- editor
   { import = "astrocommunity.comment.mini-comment" },
+  { import = "astrocommunity.split-and-window.neominimap-nvim" },
   -- ai
   { import = "astrocommunity.completion.copilot-lua" },
   -- color
