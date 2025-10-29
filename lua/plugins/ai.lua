@@ -10,11 +10,6 @@ return {
         enabled = true,
       },
     },
-    nes = {
-      clear = {
-        esc = false,
-      },
-    },
   },
   dependencies = {
     {
