@@ -1,0 +1,63 @@
+{
+  "plugins": {
+    "blink.cmp": {
+      "rev": "78336bc89ee5365633bcf754d93df01678b5c08f",
+      "src": "https://github.com/Saghen/blink.cmp",
+      "version": "1.0.0 - 2.0.0"
+    },
+    "blink.download": {
+      "rev": "a459c8fbf51359902971874b5ebe05f6602db8b4",
+      "src": "https://github.com/saghen/blink.download"
+    },
+    "blink.indent": {
+      "rev": "9c80820ca77218a8d28e70075d6f44a1609911fe",
+      "src": "https://github.com/saghen/blink.indent"
+    },
+    "blink.pairs": {
+      "rev": "4e43012356d33a26f69eae475f746fbe9f325f44",
+      "src": "https://github.com/saghen/blink.pairs",
+      "version": "0.0.0 - 1.0.0"
+    },
+    "conform.nvim": {
+      "rev": "086a40dc7ed8242c03be9f47fbcee68699cc2395",
+      "src": "https://github.com/stevearc/conform.nvim"
+    },
+    "friendly-snippets": {
+      "rev": "6cd7280adead7f586db6fccbd15d2cac7e2188b9",
+      "src": "https://github.com/rafamadriz/friendly-snippets"
+    },
+    "mason-lspconfig.nvim": {
+      "rev": "0a3b42c3e503df87aef6d6513e13148381495c3a",
+      "src": "https://github.com/mason-org/mason-lspconfig.nvim"
+    },
+    "mason.nvim": {
+      "rev": "b03fb0f20bc1d43daf558cda981a2be22e73ac42",
+      "src": "https://github.com/mason-org/mason.nvim"
+    },
+    "mini.nvim": {
+      "rev": "c67822c53e8e282fe863343e88aa0a8ca3534059",
+      "src": "https://github.com/nvim-mini/mini.nvim"
+    },
+    "neo-tree.nvim": {
+      "rev": "84c75e7a7e443586f60508d12fc50f90d9aee14e",
+      "src": "https://github.com/nvim-neo-tree/neo-tree.nvim",
+      "version": "3.0.0 - 4.0.0"
+    },
+    "nui.nvim": {
+      "rev": "de740991c12411b663994b2860f1a4fd0937c130",
+      "src": "https://github.com/MunifTanjim/nui.nvim"
+    },
+    "nvim-lspconfig": {
+      "rev": "8a9378a822719346a0288fa004dab302ca3c0a8f",
+      "src": "https://github.com/neovim/nvim-lspconfig"
+    },
+    "nvim-web-devicons": {
+      "rev": "c72328a5494b4502947a022fe69c0c47e53b6aa6",
+      "src": "https://github.com/nvim-tree/nvim-web-devicons"
+    },
+    "plenary.nvim": {
+      "rev": "74b06c6c75e4eeb3108ec01852001636d85a932b",
+      "src": "https://github.com/nvim-lua/plenary.nvim"
+    }
+  }
+}

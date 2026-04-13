@@ -1,0 +1,37 @@
+# OS / editor temp files
+.DS_Store
+Thumbs.db
+*~
+*.swp
+*.swo
+
+# Logs and local runtime files
+*.log
+*.tmp
+.nvimlog
+Session.vim
+
+# Lua compiled files
+*.luac
+
+# LuaRocks / local dependencies
+.luarocks/
+lua_modules/
+rocks/
+*.rock
+
+# Native build artifacts
+*.dll
+*.dylib
+*.so
+
+# Environment and local-only overrides
+.env
+.env.*
+*.local.lua
+
+# Generated plugin files
+plugin/packer_compiled.lua
+
+# Generated help tags
+doc/tags
