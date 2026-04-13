@@ -120,6 +120,13 @@ end)
 
 later(function() require("mini.move").setup() end)
 
+later(function()
+  vim.pack.add { "https://github.com/nvim-treesitter/nvim-treesitter" }
+
+  require("nvim-treesitter").setup {}
+  require("nvim-treesitter").install { "go" }
+end)
+
 later(function() require("mini.pairs").setup { modes = { command = true } } end)
 
 later(function() require("mini.splitjoin").setup() end)
