@@ -121,10 +121,13 @@ end)
 later(function() require("mini.move").setup() end)
 
 later(function()
-  vim.pack.add { "https://github.com/nvim-treesitter/nvim-treesitter" }
+  vim.pack.add {
+    { src = "https://github.com/romus204/tree-sitter-manager.nvim" },
+  }
 
-  require("nvim-treesitter").setup {}
-  require("nvim-treesitter").install { "go" }
+  require("tree-sitter-manager").setup {
+    ensure_installed = { "go" }, -- list of parsers to install at the start of a neovim session
+  }
 end)
 
 later(function() require("mini.pairs").setup { modes = { command = true } } end)
