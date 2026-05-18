@@ -125,8 +125,12 @@ later(function()
     { src = "https://github.com/romus204/tree-sitter-manager.nvim" },
   }
 
-  require("tree-sitter-manager").setup {
-    ensure_installed = { "go" }, -- list of parsers to install at the start of a neovim session
+  require("tree-sitter-manager").setup {}
+
+  map {
+    n = {
+      { "<Leader>pt", "<Cmd>TSManager<CR>", "Treesitter Manager" },
+    },
   }
 end)
 
