@@ -51,6 +51,7 @@ later(function()
       {
         { mode = "n", keys = "<Leader>b", desc = "+Buffer" },
         { mode = "n", keys = "<Leader>e", desc = "+Explore/Edit" },
+        { mode = "n", keys = "<Leader>d", desc = "+Diffview" },
         { mode = "n", keys = "<Leader>f", desc = "+Find" },
         { mode = "n", keys = "<Leader>g", desc = "+Git" },
         { mode = "n", keys = "<Leader>l", desc = "+Language" },
@@ -118,6 +119,20 @@ later(function()
     },
     x = {
       { "<Leader>gs", "<Cmd>lua MiniGit.show_at_cursor()<CR>", "Show at selection" },
+    },
+  }
+end)
+
+later(function()
+  vim.pack.add {
+    { src = "https://github.com/dlyongemallo/diffview.nvim" },
+  }
+
+  require("diffview").setup()
+
+  map {
+    n = {
+      { "<Leader>do", "<Cmd>:DiffviewOpen<CR>", "Open diffview" },
     },
   }
 end)
