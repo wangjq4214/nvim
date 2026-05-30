@@ -9,7 +9,32 @@
 
 local now, later, map = utils.now, utils.later, utils.map
 
-now(function() vim.cmd "colorscheme miniwinter" end)
+now(function()
+  require("mini.base16").setup {
+    palette = {
+      base00 = "#1a1a1a", -- background
+      base01 = "#333333", -- selection background
+      base02 = "#444444", -- bright black
+      base03 = "#5a5a5a", -- comments / invisibles
+      base04 = "#8a8fa8", -- dark foreground
+      base05 = "#d0d6f0", -- foreground
+      base06 = "#e6e9f8", -- light foreground
+      base07 = "#ffffff", -- bright white
+
+      base08 = "#f08898", -- red
+      base09 = "#f8b080", -- orange / cursor
+      base0A = "#f5dea4", -- yellow
+      base0B = "#a4e09c", -- green
+      base0C = "#90dcd0", -- cyan
+      base0D = "#84b4f8", -- blue
+      base0E = "#c8a2f4", -- purple
+      base0F = "#d8a080", -- brown / extra accent
+    },
+    use_cterm = true,
+  }
+
+  -- vim.cmd "colorscheme miniwinter"
+end)
 
 later(function() require("mini.animate").setup() end)
 
