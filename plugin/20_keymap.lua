@@ -11,6 +11,12 @@ local map = utils.map
 
 map {
   n = {
+    { "<Leader>q", "<Cmd>:q<CR>", "Quit" },
+  },
+}
+
+map {
+  n = {
     { "[p", '<Cmd>exe "iput! " . v:register<CR>', "Paste Above" },
     { "]p", '<Cmd>exe "iput "  . v:register<CR>', "Paste Below" },
   },
