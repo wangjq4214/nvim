@@ -207,6 +207,7 @@ now(function()
     },
     window = {
       position = "right",
+      width = 30,
     },
   }
 
