@@ -68,6 +68,7 @@ later(function()
     "https://github.com/saghen/blink.download",
   }
 
+  require("blink.pairs").download():pwait(60000)
   require("blink.pairs").setup {}
 end)
 
@@ -88,7 +89,7 @@ later(function()
       dart = { "dart_format" },
       json = { "oxfmt" },
       yaml = { "yamlfmt" },
-      toml = { "tomlbi" },
+      toml = { "tombi" },
     },
   }
 end)

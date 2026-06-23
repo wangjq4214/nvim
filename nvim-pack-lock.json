@@ -22,6 +22,10 @@
       "rev": "619363c30309d29ffa631e67c8183f2a72caa373",
       "src": "https://github.com/stevearc/conform.nvim"
     },
+    "crates.nvim": {
+      "rev": "694357861ec9ebf12475ddcdd04ea45a0923c32d",
+      "src": "https://github.com/Saecki/crates.nvim"
+    },
     "diffview.nvim": {
       "rev": "de8bf7bc1b7382890de7b0623023e322c7a8ce7e",
       "src": "https://github.com/dlyongemallo/diffview.nvim"
