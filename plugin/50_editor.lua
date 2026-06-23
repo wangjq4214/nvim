@@ -139,3 +139,11 @@ later(function() require("mini.pairs").setup { modes = { command = true } } end)
 later(function() require("mini.splitjoin").setup() end)
 
 later(function() require("mini.surround").setup() end)
+
+later(function()
+  vim.pack.add {
+    { src = "https://github.com/MeanderingProgrammer/render-markdown.nvim" },
+  }
+
+  require('render-markdown').setup({})
+end)

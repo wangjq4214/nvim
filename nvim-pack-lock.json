@@ -63,6 +63,10 @@
       "rev": "74b06c6c75e4eeb3108ec01852001636d85a932b",
       "src": "https://github.com/nvim-lua/plenary.nvim"
     },
+    "render-markdown.nvim": {
+      "rev": "f422cb5c6855f150e2ddcfaf44e7157b98b34f6a",
+      "src": "https://github.com/MeanderingProgrammer/render-markdown.nvim"
+    },
     "tree-sitter-manager.nvim": {
       "rev": "ae287204a4fe9174e82bad17c102e721e5aa8520",
       "src": "https://github.com/romus204/tree-sitter-manager.nvim"
