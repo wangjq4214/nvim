@@ -122,15 +122,31 @@ end)
 later(function() require("mini.move").setup() end)
 
 later(function()
-  vim.pack.add {
-    { src = "https://github.com/romus204/tree-sitter-manager.nvim" },
-  }
-
-  require("tree-sitter-manager").setup {}
+  vim.pack.add { "https://github.com/nvim-treesitter/nvim-treesitter" }
 
   map {
     n = {
-      { "<Leader>pt", "<Cmd>TSManager<CR>", "Treesitter Manager" },
+      {
+        "<Leader>pt",
+        function()
+          local filetype = vim.bo.filetype
+          if filetype == "" then
+            vim.notify("Cannot install a Treesitter parser: buffer has no filetype", vim.log.levels.WARN)
+            return
+          end
+
+          require("nvim-treesitter").install { filetype }
+        end,
+        "Install Treesitter parser for current filetype",
+      },
+      {
+        "<Leader>pT",
+        function()
+          vim.notify("Updating installed Treesitter parsers…")
+          vim.cmd "TSUpdate"
+        end,
+        "Update installed Treesitter parsers",
+      },
     },
   }
 end)

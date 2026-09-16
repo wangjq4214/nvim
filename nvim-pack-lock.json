@@ -59,6 +59,10 @@
       "rev": "ac9d2f7c4757db6320cab6697fe73e5e8adb2457",
       "src": "https://github.com/neovim/nvim-lspconfig"
     },
+    "nvim-treesitter": {
+      "rev": "9a168f6357ed21c3a636e1727bc7d382abc451b8",
+      "src": "https://github.com/nvim-treesitter/nvim-treesitter"
+    },
     "nvim-web-devicons": {
       "rev": "5f032a85be210cd1c6ac98861eb3b187ff3bd5eb",
       "src": "https://github.com/nvim-tree/nvim-web-devicons"
@@ -70,10 +74,6 @@
     "render-markdown.nvim": {
       "rev": "640a3ec6d538bad17c328be373c7cad0293d9589",
       "src": "https://github.com/MeanderingProgrammer/render-markdown.nvim"
-    },
-    "tree-sitter-manager.nvim": {
-      "rev": "1425eacb78bfee34face0fe06a8384ac3c4d9c8e",
-      "src": "https://github.com/romus204/tree-sitter-manager.nvim"
     },
     "typst-preview.nvim": {
       "rev": "1c2e19486397be1c580b560fc50ee36abe329c46",
