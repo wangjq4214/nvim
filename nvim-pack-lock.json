@@ -5,18 +5,18 @@
       "src": "https://github.com/Saghen/blink.cmp",
       "version": "1.0.0 - 2.0.0"
     },
-    "blink.download": {
-      "rev": "fd9a48ebbe6ec30d5dfcc5b42c243941ccdca1aa",
-      "src": "https://github.com/saghen/blink.download"
-    },
     "blink.indent": {
       "rev": "2e9c9768affeaf3a48b2dc329eb59763012f79f6",
       "src": "https://github.com/saghen/blink.indent"
     },
+    "blink.lib": {
+      "rev": "fd9a48ebbe6ec30d5dfcc5b42c243941ccdca1aa",
+      "src": "https://github.com/saghen/blink.lib"
+    },
     "blink.pairs": {
       "rev": "c382bc4ba0229211c8ae19491bb7aa930c051a42",
       "src": "https://github.com/saghen/blink.pairs",
-      "version": "0.0.0 - 1.0.0"
+      "version": ">=0.0.0"
     },
     "conform.nvim": {
       "rev": "016802de402556da54c36bd7359b441266b01cdd",

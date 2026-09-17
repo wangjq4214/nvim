@@ -64,8 +64,8 @@ end)
 
 later(function()
   vim.pack.add {
-    { src = "https://github.com/saghen/blink.pairs", version = vim.version.range "0" },
-    "https://github.com/saghen/blink.download",
+    "https://github.com/saghen/blink.lib",
+    { src = "https://github.com/saghen/blink.pairs", version = vim.version.range "*" },
   }
 
   require("blink.pairs").download():pwait(60000)
