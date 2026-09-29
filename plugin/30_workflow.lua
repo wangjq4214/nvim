@@ -132,7 +132,12 @@ later(function()
 
   map {
     n = {
-      { "<Leader>do", "<Cmd>:DiffviewOpen<CR>", "Open diffview" },
+      { "<Leader>do", "<Cmd>DiffviewOpen<CR>", "Open working tree diff" },
+      { "<Leader>ds", "<Cmd>DiffviewOpen --cached<CR>", "Open staged diff" },
+      { "<Leader>df", "<Cmd>DiffviewOpen -- %<CR>", "Diff current file" },
+      { "<Leader>dh", "<Cmd>DiffviewFileHistory<CR>", "Repository history" },
+      { "<Leader>dH", "<Cmd>DiffviewFileHistory %<CR>", "Current file history" },
+      { "<Leader>dc", "<Cmd>DiffviewClose<CR>", "Close diffview" },
     },
   }
 end)
@@ -176,6 +181,7 @@ now(function()
   }
 
   require("neo-tree").setup {
+    close_if_last_window = true, -- Quit when Neo-tree is the only window left.
     popup_border_style = "",
     open_files_do_not_replace_types = { "terminal", "trouble", "qf" },
     default_component_configs = {

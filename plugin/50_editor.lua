@@ -124,6 +124,48 @@ later(function() require("mini.move").setup() end)
 later(function()
   vim.pack.add { "https://github.com/nvim-treesitter/nvim-treesitter" }
 
+  local treesitter = require "nvim-treesitter"
+  local parsers = require "nvim-treesitter.parsers"
+  local installing, failed = {}, {}
+
+  local function start_parser(buf, lang)
+    if not vim.api.nvim_buf_is_loaded(buf) then return end
+    if vim.treesitter.language.get_lang(vim.bo[buf].filetype) == lang then
+      pcall(vim.treesitter.start, buf, lang)
+    end
+  end
+
+  local function ensure_parser(buf)
+    local lang = vim.treesitter.language.get_lang(vim.bo[buf].filetype)
+    if not lang or not parsers[lang] or parsers[lang].tier == 4 then return end
+
+    if vim.treesitter.language.add(lang) then
+      start_parser(buf, lang)
+      return
+    end
+    if installing[lang] or failed[lang] then return end
+    installing[lang] = true
+
+    treesitter.install({ lang }):await(function(err, success)
+      installing[lang] = nil
+      if err or not success then
+        failed[lang] = true -- Avoid retrying a broken install for every buffer in this session.
+        vim.notify("Treesitter parser install failed for " .. lang .. "; check :messages", vim.log.levels.WARN)
+        return
+      end
+
+      for _, loaded_buf in ipairs(vim.api.nvim_list_bufs()) do
+        start_parser(loaded_buf, lang)
+      end
+    end)
+  end
+
+  utils.new_autocmd("FileType", "*", function(ev) ensure_parser(ev.buf) end, "Install and start Treesitter parsers")
+  -- The initial FileType event can fire before this deferred setup runs.
+  for _, buf in ipairs(vim.api.nvim_list_bufs()) do
+    if vim.api.nvim_buf_is_loaded(buf) then ensure_parser(buf) end
+  end
+
   map {
     n = {
       {
@@ -135,7 +177,7 @@ later(function()
             return
           end
 
-          require("nvim-treesitter").install { filetype }
+          treesitter.install { vim.treesitter.language.get_lang(filetype) or filetype }
         end,
         "Install Treesitter parser for current filetype",
       },
