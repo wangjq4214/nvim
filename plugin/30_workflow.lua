@@ -219,7 +219,8 @@ now(function()
 
   map {
     n = {
-      { "<Leader>e", "<Cmd>Neotree<CR>", "Toggle Explorer" },
+      { "<Leader>e", "<Cmd>Neotree toggle<CR>", "Toggle Explorer" },
+      { "<Leader>E", "<Cmd>Neotree focus<CR>", "Focus Explorer" },
     },
   }
 end)
